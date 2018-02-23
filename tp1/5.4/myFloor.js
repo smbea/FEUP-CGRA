@@ -1,10 +1,10 @@
 /**
- * myLeg
+ * myFlooor
  * @param gl {WebGLRenderingContext}
  * @constructor
  */
 
- class myLeg extends CGFobject
+ class myFloor extends CGFobject
  {
  	constructor(scene)
  	{
@@ -14,8 +14,7 @@
   display()
   {
     this.scene.pushMatrix();
-    this.scene.scale(0.3,3.5,0.3);
-    this.scene.translate(0,0.5,0);
+    this.scene.scale(8,0.1,6);
     this.cube.display();
     this.scene.popMatrix();
   }
