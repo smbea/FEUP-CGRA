@@ -15,8 +15,8 @@
   display()
   {
     this.scene.pushMatrix();
+    this.scene.translate(0,3.5,0);
     this.scene.scale(5,0.3,3);
-    this.scene.translate(0,3.5/0.3,0);
     this.cube.display();
     this.scene.popMatrix();
 
