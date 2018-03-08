@@ -10,7 +10,7 @@
  	{
  		super(scene);
     this.cube=new MyUnitCubeQuad(this.scene);
-    this.leg = new MyLeg(this.scene);
+    this.leg = new myLeg(this.scene);
  	};
   display()
   {
