@@ -36,6 +36,7 @@ class LightingScene extends CGFscene
 		this.chair = new myChair(this);
 		this.prism = new MyPrism(this, 8 , 20);
 		this.cilinder = new MyCylinder(this,8,20);
+		this.lamp = new myLamp(this, 8, 20);
 
 		this.boardA = new Plane(this, BOARD_A_DIVISIONS);
 		this.boardB = new Plane(this, BOARD_B_DIVISIONS);
@@ -218,8 +219,7 @@ class LightingScene extends CGFscene
 			this.boardB.display();
 		this.popMatrix();*/
 
-
-		this.cilinder.display();
+		this.lamp.display();
 
 		// ---- END Scene drawing section
 	};

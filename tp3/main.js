@@ -13,6 +13,7 @@ serialInclude([
 	'myChair.js',
 	'MyPrism.js',
 	'MyCylinder.js',
+	'myLamp.js',
 
 	main=function() {
 		var app = new CGFapplication(document.body);
