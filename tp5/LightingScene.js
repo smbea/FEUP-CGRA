@@ -85,6 +85,8 @@ class LightingScene extends CGFscene
 		this.materialFloor.setSpecular(0.4,0.2,0.1,1);
 		this.materialFloor.setShininess(120);
 
+		this.clock = new myClock(this);
+
 	};
 
 	initCameras()
@@ -254,8 +256,6 @@ class LightingScene extends CGFscene
 		this.popMatrix();
 
 
-		//this.lamp.display();
-
-		// ---- END Scene drawing section
+		this.clock.display();
 	};
 };
