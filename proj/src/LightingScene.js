@@ -10,8 +10,6 @@ class LightingScene extends CGFscene
 {
 	constructor()
 	{
-
-
 		super();
 	};
 
@@ -41,33 +39,6 @@ class LightingScene extends CGFscene
 		this.car = new MyVehicle(this);
 
 		// Materials
-		this.materialDefault = new CGFappearance(this);
-
-		this.materialA = new CGFappearance(this);
-		this.materialA.setAmbient(0.3,0.3,0.3,1);
-		this.materialA.setDiffuse(0.6,0.6,0.6,1);
-		this.materialA.setSpecular(0,0.2,0.8,1);
-		this.materialA.setShininess(120);
-
-		this.materialB = new CGFappearance(this);
-		this.materialB.setAmbient(0.3,0.3,0.3,1);
-		this.materialB.setDiffuse(0.6,0.6,0.6,1);
-		this.materialB.setSpecular(0.8,0.8,0.8,1);
-		this.materialB.setShininess(120);
-
-		this.materialWall = new CGFappearance(this);
-		this.materialWall.setAmbient(0.2,0.3,0.3,1);
-		this.materialWall.setDiffuse(0.1,0.2,0.3,1);
-		this.materialWall.setSpecular(0.4,0.2,0.1,1);
-		this.materialWall.setShininess(120);
-
-		this.materialFloor = new CGFappearance(this);
-		this.materialFloor.setAmbient(0.9,0.7,0.5,1);
-		this.materialFloor.setDiffuse(0.9,0.7,0.5,1);
-		this.materialFloor.setSpecular(0.4,0.2,0.1,1);
-		this.materialFloor.setShininess(120);
-
-		
 
 	};
 

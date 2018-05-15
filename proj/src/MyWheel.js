@@ -1,11 +1,11 @@
 class MyWheel extends CGFobject{
 
-	constructor(scene) 
+	constructor(scene)
 	{
 		super(scene);
 		this.cylinder  = new MyCylinder(this.scene,20,1);
-        this.surface = new MyPolygon(this.scene,20);
-        
+    this.surface = new MyPolygon(this.scene,20);
+
 
 	};
 
@@ -24,7 +24,7 @@ class MyWheel extends CGFobject{
         this.scene.translate(0,0,0.5);
         this.surface.display();
         this.scene.popMatrix();
-        
+
         this.scene.pushMatrix();
         this.scene.translate(0,0,-0.5);
         this.scene.rotate(Math.PI, 0,1,0);
