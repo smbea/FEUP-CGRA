@@ -18,8 +18,10 @@ class LightingScene extends CGFscene
 	init(application)
 	{
 
-		this.option1=true;
-		this.option2=false;
+		this.Light1=true;
+		this.Light2=false;
+		this.Light3=false;
+		this.Light4=false;
 		this.speed=3;
 		super.init(application);
 
@@ -121,7 +123,7 @@ class LightingScene extends CGFscene
 		this.updateLights();
 
 		// Draw axis
-		this.axis.display();
+		//this.axis.display();
 
 		this.materialDefault.apply();
 
