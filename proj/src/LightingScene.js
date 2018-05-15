@@ -67,6 +67,13 @@ class LightingScene extends CGFscene
 		this.materialFloor.setSpecular(0.4,0.2,0.1,1);
 		this.materialFloor.setShininess(120);
 
+		this.groundAppearance = new CGFappearance(this);
+		this.groundAppearance.setAmbient(0.1,0.1,0.1,1);
+		this.groundAppearance.setDiffuse(0.1,0.1,0.1,1);
+		this.groundAppearance.setSpecular(0.1,0.1,0.1,1);
+		this.groundAppearance.setShininess(50);
+		this.groundAppearance.loadTexture("../res/GrassTexture.jpeg");
+
 
 	};
 
@@ -155,7 +162,7 @@ class LightingScene extends CGFscene
 
 		// ---- BEGIN Scene drawing section
 		this.car.display();
-		this.materialFloor.apply();
+		this.groundAppearance.apply();
 		this.floor.display();
 
 	};

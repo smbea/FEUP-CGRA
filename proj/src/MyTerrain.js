@@ -10,13 +10,6 @@ class MyTerrain extends CGFobject
   {
     super(scene);
     this.floor = new Plane(this.scene, 100, 0, 6, 0, 6);
-
-    this.groundAppearance = new CGFappearance(this);
-    this.groundAppearance.setAmbient(0.3,0.3,0.3,1);
-    this.groundAppearance.setDiffuse(0.6,0.3,0,1);
-    this.groundAppearance.setSpecular(0.1,0.1,0.1,1);
-    this.groundAppearance.setShininess(50);
-    //this.groundAppearance.loadTexture("../res/GrassTexture.jpeg");
   }
 
   display()
