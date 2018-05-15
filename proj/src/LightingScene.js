@@ -10,6 +10,8 @@ class LightingScene extends CGFscene
 {
 	constructor()
 	{
+
+
 		super();
 	};
 
@@ -39,6 +41,7 @@ class LightingScene extends CGFscene
 		this.car = new MyVehicle(this);
 
 		// Materials
+		this.materialDefault = new CGFappearance(this);
 
 	};
 
