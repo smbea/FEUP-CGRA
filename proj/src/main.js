@@ -9,9 +9,10 @@ serialInclude([
 	'MyCylinder.js',
 	'MyVehicle.js',
 	'MyInterface.js',
-	'MyCar.js',
 	'Plane.js',
 	'MyTerrain.js',
+	'MyWheel.js',
+	'MyPolygon.js',
 
 
 
