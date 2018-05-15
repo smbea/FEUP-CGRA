@@ -119,6 +119,30 @@ class LightingScene extends CGFscene
 		// Apply transformations corresponding to the camera position relative to the origin
 		this.applyViewMatrix();
 
+		if(this.Light1){
+			this.lights[0].enable();
+		} else {
+			this.lights[0].disable();
+		}
+
+		if(this.Light2){
+			this.lights[1].enable();
+		} else {
+			this.lights[1].disable();
+		}
+
+		if(this.Light3){
+			this.lights[2].enable();
+		} else {
+			this.lights[2].disable();
+		}
+
+		if(this.Light4){
+			this.lights[3].enable();
+		} else {
+			this.lights[3].disable();
+		}
+
 		// Update all lights used
 		this.updateLights();
 
