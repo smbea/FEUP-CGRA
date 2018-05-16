@@ -15,9 +15,9 @@ class MyVehicle extends CGFobject
     this.bodyAppearance = new CGFappearance(this.scene);
     this.bodyAppearance.setAmbient(0.3,0.3,0.3,1);
 		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
-		this.bodyAppearance.setSpecular(0.3,0.3,0.3,1);
-    this.bodyAppearance.setShininess(100);
-    this.bodyAppearance.loadTexture("../res/navy.jpg");
+		this.bodyAppearance.setSpecular(0.1,0.1,0.1,1);
+    this.bodyAppearance.setShininess(50);
+    this.bodyAppearance.loadTexture("../res/metal.jpeg");
 
 
 

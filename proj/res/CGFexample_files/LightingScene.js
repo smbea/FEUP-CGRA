@@ -19,21 +19,21 @@ class LightingScene extends CGFscene
 	{
 
 		this.altimetry= [[ 3.0 , 3.0 , 2.0, 4.0, 2.5, 6.4, 2.3, 1.3 ],
-						[ 2.0 , 4.0 , 8.0, 6.0, 14, 15.4, 10.3, 3 ],
+						[ 2.0 , 4.0 , 8.0, 6.0, 14, 12.4, 6.3, 3 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0,0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+						[ 0.0 , 0.0 , 0.0, 20.0, 3.5, 2.4, 0.0, 0.0 ],
 						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
 						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 3.6, 5.5 ],
-						[ 8.0 , 9.5 , 4.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
+						[ 2.0 , 3.0 , 2.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
 						];
 
 		
 		this.Light1=true;
-		this.Light2=true;
-		this.Light3=true;
-		this.Light4=true;
+		this.Light2=false;
+		this.Light3=false;
+		this.Light4=false;
 		this.speed=3;
 		super.init(application);
 
@@ -70,17 +70,17 @@ class LightingScene extends CGFscene
 
 		// Positions for four lights
 		this.lights[0].setPosition(4, 6, -5, 1);
-		this.lights[0].setVisible(false); // show marker on light position (different from enabled)
+		this.lights[0].setVisible(true); // show marker on light position (different from enabled)
 
 		this.lights[1].setPosition(-4, 6.0, -5.0, 1.0);
-		this.lights[1].setVisible(false); // show marker on light position (different from enabled)
+		this.lights[1].setVisible(true); // show marker on light position (different from enabled)
 
 		this.lights[2].setPosition(-4, 6.0, 5.0, 1.0);
-		this.lights[2].setVisible(false);
+		this.lights[2].setVisible(true);
 
 		//this.lights[1].setVisible(true); // show marker on light position (different from enabled)
 		this.lights[3].setPosition(4, 6.0, 5.0, 1.0);
-		this.lights[3].setVisible(false); // show marker on light position (different from enabled)
+		this.lights[3].setVisible(true); // show marker on light position (different from enabled)
 
 		this.lights[0].setAmbient(0, 0, 0, 1);
 		this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
@@ -94,17 +94,17 @@ class LightingScene extends CGFscene
 		this.lights[2].setAmbient(0, 0, 0, 1);
 		this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
 		this.lights[2].setSpecular(1,1,1,1);
-		/*this.lights[2].setConstantAttenuation(0);
-	  	this.lights[2].setLinearAttenuation(1);
-	  	this.lights[2].setQuadraticAttenuation(0);*/
+		this.lights[2].setConstantAttenuation(0);
+	  this.lights[2].setLinearAttenuation(1);
+	  this.lights[2].setQuadraticAttenuation(0);
 		this.lights[2].enable();
 
 		this.lights[3].setAmbient(0, 0, 0, 1);
 		this.lights[3].setDiffuse(1.0, 1.0, 1.0, 1.0);
 		this.lights[3].setSpecular(1,1,0,1);
 		this.lights[3].setConstantAttenuation(0);
-	  	this.lights[3].setLinearAttenuation(0);
-	  	this.lights[3].setQuadraticAttenuation(0.2);
+	  this.lights[3].setLinearAttenuation(0);
+	  this.lights[3].setQuadraticAttenuation(0.2);
 		this.lights[3].enable();
 
 

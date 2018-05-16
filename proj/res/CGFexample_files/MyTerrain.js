@@ -14,7 +14,7 @@ class MyTerrain extends Plane
 		this.groundAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.groundAppearance.setSpecular(0.1,0.1,0.1,1);
 		this.groundAppearance.setShininess(50);
-    this.groundAppearance.loadTexture("../res/floor.png");
+    this.groundAppearance.loadTexture("../res/GrassTexture.png");
     this.altimetry = altimetry;
     this.applyAltimetry();
   }
