@@ -19,12 +19,16 @@ class MyVehicle extends CGFobject
     this.bodyAppearance.setShininess(100);
     this.bodyAppearance.loadTexture("../res/navy.jpg");
 
-
-
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;
   }
 
   display()
 	{
+        this.scene.pushMatrix();
+        this.scene.translate(this.x,this.y,this.z);
+
       //left back wheel
         this.scene.pushMatrix();
         this.scene.translate(0,1,0);
@@ -68,5 +72,9 @@ class MyVehicle extends CGFobject
         this.scene.scale(7,2,3);
         this.body.display();
         this.scene.popMatrix();
+        this.scene.popMatrix();
       	};
+    update(distance){
+      this.x += distance;
+    }
 };

@@ -122,7 +122,7 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 			this.checkKeys();
-			console.log(this.speed*this.velocity);
+			this.car.update(this.speed*this.velocity);
 	}
 
 	display()
