@@ -29,16 +29,17 @@ class LightingScene extends CGFscene
 						[ 8.0 , 9.5 , 4.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
 						];
 
-		
+
 		this.Light1=true;
 		this.Light2=true;
 		this.Light3=true;
 		this.Light4=true;
 		this.speed=3;
+		this.velocity = 0;
 		super.init(application);
 
 		this.initCameras();
-    	this.enableTextures(true);
+    this.enableTextures(true);
 		this.initLights();
 
 		this.gl.clearColor(0.431, 0.772, 0.913, 1.0);
@@ -55,7 +56,7 @@ class LightingScene extends CGFscene
 		// Materials
 		this.materialDefault = new CGFappearance(this);
 		this.floor = new MyTerrain(this, 9, this.altimetry);
-
+		this.setUpdatePeriod(100);
 
 	};
 
@@ -108,7 +109,7 @@ class LightingScene extends CGFscene
 		this.lights[3].enable();
 
 
-		
+
 
 	};
 
@@ -118,6 +119,11 @@ class LightingScene extends CGFscene
 			this.lights[i].update();
 	}
 
+	update(currTime)
+	{
+			this.checkKeys();
+			this.car.update(this.speed*this.velocity);
+	}
 
 	display()
 	{
@@ -179,4 +185,30 @@ class LightingScene extends CGFscene
 	{
 		console.log("Doing something...");
 	};
+
+	checkKeys()
+	{
+		var text="Keys pressed: ";
+		var keysPressed=false;
+		if (this.gui.isKeyPressed("KeyW"))
+		{
+			this.velocity += 0.1;
+		}
+		if (this.gui.isKeyPressed("KeyS"))
+		{
+			this.velocity += -0.1;
+		}
+		if (this.gui.isKeyPressed("KeyA"))
+		{
+			text+=" A ";
+			keysPressed=true;
+		}
+		if (this.gui.isKeyPressed("KeyD"))
+		{
+			text+=" D ";
+			keysPressed=true;
+		}
+		if (keysPressed)
+		console.log(text);
+	 }
 };

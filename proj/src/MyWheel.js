@@ -11,7 +11,7 @@ class MyWheel extends CGFobject{
 		this.surfaceAppearance.setSpecular(0.1,0.1,0.1,1);
 		this.surfaceAppearance.setShininess(50);
         this.surfaceAppearance.loadTexture("../res/wheel.png");
-        
+
         this.cylinderAppearance = new CGFappearance(this.scene);
         this.cylinderAppearance.setAmbient(0,0,0,1);
 		this.cylinderAppearance.setDiffuse(0,0,0,1);
@@ -30,7 +30,7 @@ class MyWheel extends CGFobject{
 		this.cylinder.display();
 		this.scene.scale(0.5,0.5);
         this.scene.popMatrix();
-        
+
 
         this.surfaceAppearance.apply();
 
