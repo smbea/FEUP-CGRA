@@ -35,10 +35,11 @@ class LightingScene extends CGFscene
 		this.Light3=true;
 		this.Light4=true;
 		this.speed=3;
+		this.velocity = 0;
 		super.init(application);
 
 		this.initCameras();
-    	this.enableTextures(true);
+    this.enableTextures(true);
 		this.initLights();
 
 		this.gl.clearColor(0.431, 0.772, 0.913, 1.0);
@@ -121,6 +122,7 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 			this.checkKeys();
+			console.log(this.speed*this.velocity);
 	}
 
 	display()
@@ -190,13 +192,11 @@ class LightingScene extends CGFscene
 		var keysPressed=false;
 		if (this.gui.isKeyPressed("KeyW"))
 		{
-			text+=" W ";
-			keysPressed=true;
+			this.velocity = 1;
 		}
 		if (this.gui.isKeyPressed("KeyS"))
 		{
-			text+=" S ";
-			keysPressed=true;
+			this.velocity = -1;
 		}
 		if (this.gui.isKeyPressed("KeyA"))
 		{
