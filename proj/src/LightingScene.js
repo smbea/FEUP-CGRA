@@ -175,7 +175,7 @@ class LightingScene extends CGFscene
 
 	};
 
-	doSomething()
+	Lights()
 	{
 		console.log("Doing something...");
 	};
