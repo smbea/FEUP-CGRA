@@ -9,7 +9,8 @@ class MyVehicle extends CGFobject
   constructor(scene)
   {
     super(scene);
-    this.wheel = new MyWheel(this.scene);
+    this.frontWheel = new MyWheel(this.scene);
+    this.backWheel = new MyWheel(this.scene);
     this.body = new MyUnitCubeQuad(this.scene);
 
     this.bodyAppearance = new CGFappearance(this.scene);
@@ -23,7 +24,9 @@ class MyVehicle extends CGFobject
     this.y = 0;
     this.z = 0;
 
+    this.speed = 0;
     this.rotation = 0;
+    this.turn = 0;
   }
 
   display()
@@ -37,7 +40,7 @@ class MyVehicle extends CGFobject
        this.scene.translate(-1.2, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
        this.scene.rotate(-this.rotation,0,0,1);
-       this.wheel.display();
+       this.backWheel.display();
        this.scene.popMatrix();
 
        //right back wheel
@@ -47,7 +50,7 @@ class MyVehicle extends CGFobject
        this.scene.translate(1.2, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
        this.scene.rotate(this.rotation,0,0,1);
-       this.wheel.display();
+       this.backWheel.display();
        this.scene.popMatrix();
 
         //left front wheel
@@ -56,7 +59,8 @@ class MyVehicle extends CGFobject
         this.scene.translate(1.2, 0,1);
         this.scene.scale(0.5,0.5,0.5);
         this.scene.rotate(-this.rotation,0,0,1);
-        this.wheel.display();
+        this.scene.rotate(this.turn,0,1,0);
+        this.frontWheel.display();
         this.scene.popMatrix();
 
         //right front wheel
@@ -66,7 +70,7 @@ class MyVehicle extends CGFobject
         this.scene.translate(-1.2, 0, 1);
         this.scene.scale(0.5,0.5,0.5);
         this.scene.rotate(this.rotation,0,0,1);
-        this.wheel.display();
+        this.frontWheel.display();
         this.scene.popMatrix();
 
         //body
@@ -84,8 +88,20 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
         this.scene.popMatrix();
       	};
-    update(speed){
-      this.x += speed;
-      this.rotation += 2 * speed;
+    update(){
+      this.x += this.speed;
+      this.rotation += 2 * this.speed;
+    }
+    accelerate(acel){
+      this.speed += 0.005*acel;
+    }
+    brake(acel){
+      this.speed += -0.005*acel;
+    }
+    turnLeft(){
+      this.turn += (Math.PI / 10);
+    }
+    turnRight(){
+      this.turn -= (Math.PI / 10);
     }
 };

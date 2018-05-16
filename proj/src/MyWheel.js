@@ -17,13 +17,16 @@ class MyWheel extends CGFobject{
 		this.cylinderAppearance.setDiffuse(0,0,0,1);
 		this.cylinderAppearance.setSpecular(0.1,0.1,0.1,1);
         this.cylinderAppearance.setShininess(50);
+
+				this.turnAngle = 0;
+				this.spinAngle = 0;
+				this.speed = 0;
 	};
 
 	display()
 	{
 
         var ang=(2*Math.PI)/180;
-
         this.scene.pushMatrix();
         this.scene.translate(0,0,-0.5);
         this.cylinderAppearance.apply();
@@ -61,6 +64,12 @@ class MyWheel extends CGFobject{
         this.scene.popMatrix();
 
 	};
+	setAngle(angle){
+		this.turnAngle = angle;
+	}
+	setSpinningAngle(angle){
+		this.spinAngle = angle;
+	}
 
 
 };
