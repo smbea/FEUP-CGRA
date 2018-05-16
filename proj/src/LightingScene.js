@@ -29,7 +29,7 @@ class LightingScene extends CGFscene
 						[ 8.0 , 9.5 , 4.0, 1.0, 2.5, 2.4, 2.3, 1.3 ]
 						];
 
-		
+
 		this.Light1=true;
 		this.Light2=true;
 		this.Light3=true;
@@ -55,7 +55,7 @@ class LightingScene extends CGFscene
 		// Materials
 		this.materialDefault = new CGFappearance(this);
 		this.floor = new MyTerrain(this, 9, this.altimetry);
-
+		this.setUpdatePeriod(100);
 
 	};
 
@@ -108,7 +108,7 @@ class LightingScene extends CGFscene
 		this.lights[3].enable();
 
 
-		
+
 
 	};
 
@@ -118,6 +118,10 @@ class LightingScene extends CGFscene
 			this.lights[i].update();
 	}
 
+	update(currTime)
+	{
+			this.checkKeys();
+	}
 
 	display()
 	{
@@ -179,4 +183,32 @@ class LightingScene extends CGFscene
 	{
 		console.log("Doing something...");
 	};
+
+	checkKeys()
+	{
+		var text="Keys pressed: ";
+		var keysPressed=false;
+		if (this.gui.isKeyPressed("KeyW"))
+		{
+			text+=" W ";
+			keysPressed=true;
+		}
+		if (this.gui.isKeyPressed("KeyS"))
+		{
+			text+=" S ";
+			keysPressed=true;
+		}
+		if (this.gui.isKeyPressed("KeyA"))
+		{
+			text+=" A ";
+			keysPressed=true;
+		}
+		if (this.gui.isKeyPressed("KeyD"))
+		{
+			text+=" D ";
+			keysPressed=true;
+		}
+		if (keysPressed)
+		console.log(text);
+	 }
 };
