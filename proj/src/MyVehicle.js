@@ -46,7 +46,7 @@ class MyVehicle extends CGFobject
        this.scene.translate(0,0.5,0);
        this.scene.translate(1.2, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
-       this.scene.rotate(-this.rotation,0,0,1);
+       this.scene.rotate(this.rotation,0,0,1);
        this.wheel.display();
        this.scene.popMatrix();
 
@@ -65,7 +65,7 @@ class MyVehicle extends CGFobject
         this.scene.translate(0,0.5,0);
         this.scene.translate(-1.2, 0, 1);
         this.scene.scale(0.5,0.5,0.5);
-        this.scene.rotate(-this.rotation,0,0,1);
+        this.scene.rotate(this.rotation,0,0,1);
         this.wheel.display();
         this.scene.popMatrix();
 

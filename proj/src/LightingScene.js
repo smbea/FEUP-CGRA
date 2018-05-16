@@ -29,7 +29,7 @@ class LightingScene extends CGFscene
 						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 						];
 
-
+		this.fps = 60;
 		this.Light1=true;
 		this.Light2=true;
 		this.Light3=true;
@@ -55,8 +55,8 @@ class LightingScene extends CGFscene
 
 		// Materials
 		this.materialDefault = new CGFappearance(this);
-		this.floor = new MyTerrain(this, 9, this.altimetry);
-		this.setUpdatePeriod(100);
+		this.floor = new MyTerrain(this, 8, this.altimetry);
+		this.setUpdatePeriod(1000/this.fps);
 
 	};
 
@@ -192,11 +192,11 @@ class LightingScene extends CGFscene
 		var keysPressed=false;
 		if (this.gui.isKeyPressed("KeyW"))
 		{
-			this.velocity += 0.05;
+			this.velocity += 0.005;
 		}
 		if (this.gui.isKeyPressed("KeyS"))
 		{
-			this.velocity += -0.05;
+			this.velocity += -0.005;
 		}
 		if (this.gui.isKeyPressed("KeyA"))
 		{
