@@ -8,7 +8,7 @@ class MyTerrain extends Plane
 {
   constructor(scene, nrDivs, altimetry)
   {
-    super(scene,nrDivs,0,6,0,6);
+    super(scene,nrDivs);
     this.groundAppearance = new CGFappearance(this.scene);
 		this.groundAppearance.setAmbient(0.3,0.3,0.3,1);
 		this.groundAppearance.setDiffuse(0.8,0.8,0.8,1);
