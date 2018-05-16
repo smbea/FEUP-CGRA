@@ -192,11 +192,11 @@ class LightingScene extends CGFscene
 		var keysPressed=false;
 		if (this.gui.isKeyPressed("KeyW"))
 		{
-			this.velocity += 0.1;
+			this.velocity += 0.05;
 		}
 		if (this.gui.isKeyPressed("KeyS"))
 		{
-			this.velocity += -0.1;
+			this.velocity += -0.05;
 		}
 		if (this.gui.isKeyPressed("KeyA"))
 		{
