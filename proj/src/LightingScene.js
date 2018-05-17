@@ -34,7 +34,7 @@ class LightingScene extends CGFscene
 		this.Light2=true;
 		this.Light3=true;
 		this.Light4=true;
-		this.speed=3;
+		this.acceleration=2.5;
 		super.init(application);
 
 		this.initCameras();
@@ -191,11 +191,11 @@ class LightingScene extends CGFscene
 		var keysPressed=false;
 		if (this.gui.isKeyPressed("KeyW"))
 		{
-			this.car.accelerate(this.speed);
+			this.car.accelerate(this.acceleration);
 		}
 		if (this.gui.isKeyPressed("KeyS"))
 		{
-			this.car.brake(this.speed);
+			this.car.brake(this.acceleration);
 		}
 		if (this.gui.isKeyPressed("KeyA"))
 		{

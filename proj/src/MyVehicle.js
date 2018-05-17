@@ -27,12 +27,15 @@ class MyVehicle extends CGFobject
     this.speed = 0;
     this.rotation = 0;
     this.turn = 0;
+    this.orientation = 0;
   }
 
   display()
 	{
         this.scene.pushMatrix();
         this.scene.translate(this.x,this.y,this.z);
+        this.scene.rotate(this.orientation,0,1,0);
+        this.scene.translate(1.3,0,0);
 
        //left back wheel
        this.scene.pushMatrix();
@@ -84,7 +87,9 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
       	};
     update(){
-      this.x += this.speed;
+      this.x += this.speed * Math.cos(this.orientation);
+      this.z += this.speed * Math.sin(-this.orientation);
+      this.orientation += this.turn * this.speed * 0.3;
       this.rotation += 2 * this.speed;
       this.backWheel.setSpinningAngle(this.rotation);
       this.frontWheel.setSpinningAngle(this.rotation);
@@ -93,9 +98,15 @@ class MyVehicle extends CGFobject
     }
     accelerate(acel){
       this.speed += 0.005*acel;
+      if(this.speed >= 0.7){
+        this.speed = 0.7;
+      }
     }
     brake(acel){
       this.speed += -0.005*acel;
+      if(this.speed <= -0.4){
+        this.speed = -0.4;
+      }
     }
     turnLeft(){
       this.turn += (Math.PI / 10);
