@@ -48,6 +48,7 @@ class LightingScene extends CGFscene
 		this.gl.depthFunc(this.gl.LEQUAL);
 
 		this.axis = new CGFaxis(this);
+		this.axisToggled = false;
 
 		// Scene elements
 		this.car = new MyVehicle(this);
@@ -167,7 +168,9 @@ class LightingScene extends CGFscene
 		this.updateLights();
 
 		// Draw axis
-		//this.axis.display();
+		if(this.axisToggled){
+			this.axis.display();
+		}
 
 		this.materialDefault.apply();
 
@@ -180,9 +183,13 @@ class LightingScene extends CGFscene
 
 	};
 
-	Lights()
+	ToggleAxis()
 	{
-		console.log("Doing something...");
+		if(this.axisToggled){
+			this.axisToggled = false;
+		} else {
+			this.axisToggled = true;
+		}
 	};
 
 	checkKeys()

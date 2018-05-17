@@ -48,6 +48,7 @@ class MyInterface extends CGFinterface {
 		// min and max values can be specified as parameters
 
 		this.gui.add(this.scene, 'acceleration', 1, 5);
+    this.gui.add(this.scene, 'ToggleAxis');
     this.initKeys();
 
 		return true;
