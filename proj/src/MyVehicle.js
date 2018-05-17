@@ -94,6 +94,12 @@ class MyVehicle extends CGFobject
       this.backWheel.setSpinningAngle(this.rotation);
       this.frontWheel.setSpinningAngle(this.rotation);
       this.frontWheel.setAngle(this.turn);
+      if(this.turn > 0){
+        this.turn -= Math.PI / 50;
+      }
+      if(this.turn < 0){
+        this.turn += Math.PI / 50;
+      }
 
     }
     accelerate(acel){
