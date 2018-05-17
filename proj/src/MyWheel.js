@@ -27,6 +27,10 @@ class MyWheel extends CGFobject{
 	{
 
         var ang=(2*Math.PI)/180;
+				this.scene.pushMatrix();
+				 this.scene.rotate(this.turnAngle,0,1,0);
+				 this.scene.rotate(this.spinAngle,0,0,1);
+
         this.scene.pushMatrix();
         this.scene.translate(0,0,-0.5);
         this.cylinderAppearance.apply();
@@ -62,6 +66,7 @@ class MyWheel extends CGFobject{
         this.scene.scale(0.2,0.2,0);
         this.surface.display();
         this.scene.popMatrix();
+				this.scene.popMatrix();
 
 	};
 	setAngle(angle){

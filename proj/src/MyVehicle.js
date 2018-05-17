@@ -39,7 +39,6 @@ class MyVehicle extends CGFobject
        this.scene.translate(0,0.5,0);
        this.scene.translate(-1.2, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
-       this.scene.rotate(-this.rotation,0,0,1);
        this.backWheel.display();
        this.scene.popMatrix();
 
@@ -49,7 +48,6 @@ class MyVehicle extends CGFobject
        this.scene.translate(0,0.5,0);
        this.scene.translate(1.2, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
-       this.scene.rotate(this.rotation,0,0,1);
        this.backWheel.display();
        this.scene.popMatrix();
 
@@ -58,8 +56,6 @@ class MyVehicle extends CGFobject
         this.scene.translate(0,0.5,0);
         this.scene.translate(1.2, 0,1);
         this.scene.scale(0.5,0.5,0.5);
-        this.scene.rotate(-this.rotation,0,0,1);
-        this.scene.rotate(this.turn,0,1,0);
         this.frontWheel.display();
         this.scene.popMatrix();
 
@@ -69,7 +65,6 @@ class MyVehicle extends CGFobject
         this.scene.translate(0,0.5,0);
         this.scene.translate(-1.2, 0, 1);
         this.scene.scale(0.5,0.5,0.5);
-        this.scene.rotate(this.rotation,0,0,1);
         this.frontWheel.display();
         this.scene.popMatrix();
 
@@ -91,6 +86,10 @@ class MyVehicle extends CGFobject
     update(){
       this.x += this.speed;
       this.rotation += 2 * this.speed;
+      this.backWheel.setSpinningAngle(this.rotation);
+      this.frontWheel.setSpinningAngle(this.rotation);
+      this.frontWheel.setAngle(this.turn);
+
     }
     accelerate(acel){
       this.speed += 0.005*acel;
@@ -100,8 +99,14 @@ class MyVehicle extends CGFobject
     }
     turnLeft(){
       this.turn += (Math.PI / 10);
+      if(this.turn >= Math.PI/3){
+        this.turn = Math.PI/3;
+      }
     }
     turnRight(){
       this.turn -= (Math.PI / 10);
+      if(this.turn <= -Math.PI/3){
+        this.turn = -Math.PI/3;
+      }
     }
 };
