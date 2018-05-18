@@ -20,20 +20,27 @@ class MyVehicle extends CGFobject
     this.bodyAppearance.setShininess(100);
     this.bodyAppearance.loadTexture("../res/navy.jpg");
 
+    //The vehicle position
     this.x = 0;
     this.y = 0;
     this.z = 0;
 
+    //The norm of the speed vector
     this.speed = 0;
+    //The angle that the wheels will rotate forward/backward
     this.rotation = 0;
+    //The angle that the front wheels rotate in comparison to the vehicle
     this.turn = 0;
+    //The orientation of the vehicle relative to the origin
     this.orientation = 0;
   }
 
   display()
 	{
         this.scene.pushMatrix();
+        //Translate to the current location
         this.scene.translate(this.x,this.y,this.z);
+        //Rotate to the current orientation
         this.scene.rotate(this.orientation,0,1,0);
         this.scene.translate(1.3,0,0);
 
@@ -87,13 +94,20 @@ class MyVehicle extends CGFobject
 
 
     update(){
+      //Calculates the speed in the x axis
       this.x += this.speed * Math.cos(this.orientation);
+      //Calculate the speed in the z axis
       this.z += this.speed * Math.sin(-this.orientation);
+      //The orientation of the vehicle will depend on the angle of the wheels and its speed
       this.orientation += this.turn * this.speed * 0.3;
+      //Calculates how many degrees in radians the wheel must turn relative to the speed
       this.rotation += 2 * this.speed;
+      //Set the spinning angle of all wheels
       this.backWheel.setSpinningAngle(-this.rotation);
       this.frontWheel.setSpinningAngle(-this.rotation);
+      //Set the angle that the front wheels turn relative to the vehicle
       this.frontWheel.setAngle(this.turn);
+      //Resets the wheels gradually if the car is not turning
       if(this.turn > 0){
         this.turn -= Math.PI / 50;
       }
@@ -104,24 +118,28 @@ class MyVehicle extends CGFobject
     }
     accelerate(acel){
       this.speed += 0.005*acel;
+      //Maximum speed of the car
       if(this.speed >= 0.7){
         this.speed = 0.7;
       }
     }
     brake(acel){
       this.speed += -0.005*acel;
+      //Maximum speed of the car when moving backwards
       if(this.speed <= -0.4){
         this.speed = -0.4;
       }
     }
     turnLeft(){
       this.turn += (Math.PI / 10);
+      //Wheels should not turn more than 60 degrees
       if(this.turn >= Math.PI/3){
         this.turn = Math.PI/3;
       }
     }
     turnRight(){
       this.turn -= (Math.PI / 10);
+      //Wheels should not turn more than 60 degrees
       if(this.turn <= -Math.PI/3){
         this.turn = -Math.PI/3;
       }

@@ -139,25 +139,25 @@ class LightingScene extends CGFscene
 
 		// Apply transformations corresponding to the camera position relative to the origin
 		this.applyViewMatrix();
-
+		//Enable Light 1 based on the Inteface Tickboxes
 		if(this.Light1){
 			this.lights[0].enable();
 		} else {
 			this.lights[0].disable();
 		}
-
+		//Enable Light 2 based on the Inteface Tickboxes
 		if(this.Light2){
 			this.lights[1].enable();
 		} else {
 			this.lights[1].disable();
 		}
-
+		//Enable Light 3 based on the Inteface Tickboxes
 		if(this.Light3){
 			this.lights[2].enable();
 		} else {
 			this.lights[2].disable();
 		}
-
+		//Enable Light 4 based on the Inteface Tickboxes
 		if(this.Light4){
 			this.lights[3].enable();
 		} else {
@@ -167,7 +167,7 @@ class LightingScene extends CGFscene
 		// Update all lights used
 		this.updateLights();
 
-		// Draw axis
+		// Draw axis if it is toggled On
 		if(this.axisToggled){
 			this.axis.display();
 		}
@@ -185,6 +185,7 @@ class LightingScene extends CGFscene
 
 	ToggleAxis()
 	{
+		//If the button is pressed switch state
 		if(this.axisToggled){
 			this.axisToggled = false;
 		} else {
@@ -194,8 +195,7 @@ class LightingScene extends CGFscene
 
 	checkKeys()
 	{
-		var text="Keys pressed: ";
-		var keysPressed=false;
+
 		if (this.gui.isKeyPressed("KeyW"))
 		{
 			this.car.accelerate(this.acceleration);
@@ -212,7 +212,5 @@ class LightingScene extends CGFscene
 		{
 			this.car.turnRight();
 		}
-		if (keysPressed)
-		console.log(text);
 	 }
 };
