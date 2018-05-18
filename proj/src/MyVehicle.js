@@ -77,24 +77,44 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
 
         //body
+        //Base of the car
         this.scene.pushMatrix();
         this.scene.translate(-0.3,0.8,0);
         this.scene.scale(4.5,0.5,2);
         this.bodyAppearance.apply();
         this.body.display();
         this.scene.popMatrix();
-
+        //Bumper
         this.scene.pushMatrix();
         this.scene.translate(1.25,1.3,0);
         this.scene.scale(1.4,0.8,2);
         this.body.display();
         this.scene.popMatrix();
-
+        //Main Block of the car
         this.scene.pushMatrix();
         this.scene.translate(0.3,1.5,0);
-        this.scene.scale(1.4,1.5,2);
+        this.scene.scale(1.2,1.5,2);
         this.body.display();
         this.scene.popMatrix();
+        //right side of trunk
+        this.scene.pushMatrix();
+        this.scene.translate(-1.4,1.2,-0.2*(1/0.2)+0.1);
+        this.scene.scale(2.23,1,0.2);
+        this.body.display();
+        this.scene.popMatrix();
+        //left side of trunk
+        this.scene.pushMatrix();
+        this.scene.translate(-1.4,1.2,+0.2*(1/0.2)-0.1);
+        this.scene.scale(2.23,1,0.2);
+        this.body.display();
+        this.scene.popMatrix();
+       //back side of trunk
+        this.scene.pushMatrix();
+        this.scene.translate(-2.45,1.2,0);
+        this.scene.scale(0.2,1,2);
+        this.body.display();
+        this.scene.popMatrix();
+
         this.scene.popMatrix();
         };
 
