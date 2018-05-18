@@ -27,9 +27,9 @@ class MyWheel extends CGFobject{
 	{
 
         var ang=(2*Math.PI)/180;
-				this.scene.pushMatrix();
-				 this.scene.rotate(this.turnAngle,0,1,0);
-				 this.scene.rotate(this.spinAngle,0,0,1);
+		this.scene.pushMatrix();
+		this.scene.rotate(this.turnAngle,0,1,0);
+		this.scene.rotate(this.spinAngle,0,0,1);
 
         this.scene.pushMatrix();
         this.scene.translate(0,0,-0.5);
@@ -37,7 +37,6 @@ class MyWheel extends CGFobject{
 		this.cylinder.display();
 		this.scene.scale(0.5,0.5);
         this.scene.popMatrix();
-
 
         this.surfaceAppearance.apply();
 
@@ -52,21 +51,12 @@ class MyWheel extends CGFobject{
         this.surface.display();
         this.scene.popMatrix();
 
-        //tiny wheel
-        this.scene.pushMatrix();
-        this.scene.translate(0,0,0.5);
-        this.scene.scale(0.2,0.2,0.05);
-        this.cylinderAppearance.apply();
-		this.cylinder.display();
-		this.scene.scale(0.5,0.5);
-		this.scene.popMatrix();
 
         this.scene.pushMatrix();
         this.scene.translate(0,0,0.5);
         this.scene.scale(0.2,0.2,0);
-        this.surface.display();
         this.scene.popMatrix();
-				this.scene.popMatrix();
+		this.scene.popMatrix();
 
 	};
 	setAngle(angle){
