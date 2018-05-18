@@ -35,6 +35,7 @@ class LightingScene extends CGFscene
 		this.Light3=true;
 		this.Light4=true;
 		this.acceleration=2.5;
+		this.textures = [this.texture1,this.texture2,this.texture3];
 		super.init(application);
 
 		this.initCameras();
