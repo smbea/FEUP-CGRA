@@ -84,15 +84,15 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
         this.scene.popMatrix();
         };
-        
-        
+
+
     update(){
       this.x += this.speed * Math.cos(this.orientation);
       this.z += this.speed * Math.sin(-this.orientation);
       this.orientation += this.turn * this.speed * 0.3;
       this.rotation += 2 * this.speed;
-      this.backWheel.setSpinningAngle(this.rotation);
-      this.frontWheel.setSpinningAngle(this.rotation);
+      this.backWheel.setSpinningAngle(-this.rotation);
+      this.frontWheel.setSpinningAngle(-this.rotation);
       this.frontWheel.setAngle(this.turn);
       if(this.turn > 0){
         this.turn -= Math.PI / 50;
