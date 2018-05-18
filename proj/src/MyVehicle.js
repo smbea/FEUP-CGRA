@@ -47,7 +47,7 @@ class MyVehicle extends CGFobject
        //right back wheel
        this.scene.pushMatrix();
        this.scene.translate(0,0.5,0);
-       this.scene.translate(-1.2, 0, 1);
+       this.scene.translate(-1.6, 0, 1);
        this.scene.scale(0.5,0.5,0.5);
        this.backWheel.display();
        this.scene.popMatrix();
@@ -55,7 +55,7 @@ class MyVehicle extends CGFobject
        //left back wheel
        this.scene.pushMatrix();
        this.scene.translate(0,0.5,0);
-       this.scene.translate(-1.2, 0, -1);
+       this.scene.translate(-1.6, 0, -1);
        this.scene.scale(0.5,0.5,0.5);
        this.backWheel.display();
        this.scene.popMatrix();
@@ -78,15 +78,21 @@ class MyVehicle extends CGFobject
 
         //body
         this.scene.pushMatrix();
-        this.scene.scale(4,1.2,2);
-        this.scene.translate(0,1,0);
+        this.scene.translate(-0.3,0.8,0);
+        this.scene.scale(4.5,0.5,2);
         this.bodyAppearance.apply();
         this.body.display();
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(-0.5,2,0);
-        this.scene.scale(2.5,0.8,1.5);
+        this.scene.translate(1.25,1.3,0);
+        this.scene.scale(1.4,0.8,2);
+        this.body.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0.3,1.5,0);
+        this.scene.scale(1.4,1.5,2);
         this.body.display();
         this.scene.popMatrix();
         this.scene.popMatrix();
