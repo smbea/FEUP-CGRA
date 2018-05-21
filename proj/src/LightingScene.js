@@ -53,6 +53,7 @@ class LightingScene extends CGFscene
 
 		// Scene elements
 		this.car = new MyVehicle(this);
+		this.crane = new MyCrane(this);
 
 		// Materials
 		this.materialDefault = new CGFappearance(this);
@@ -176,6 +177,7 @@ class LightingScene extends CGFscene
 
 
 		// ---- BEGIN Scene drawing section
+		this.crane.display();
 		this.car.display();
 		this.floor.display();
 
