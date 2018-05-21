@@ -40,6 +40,10 @@ class MyVehicle extends CGFobject
     this.mirrorAppearance.loadTexture("../res/mirror.jpg");
 
     this.headlightAppearance = new CGFappearance(this.scene);
+    this.headlightAppearance.setAmbient(1/255,1/255,1/153.8,1);
+    this.headlightAppearance.setSpecular(1/255,1/255,1/153,1);
+
+
 
     //The vehicle position
     this.x = 0;
