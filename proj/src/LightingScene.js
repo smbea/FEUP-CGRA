@@ -122,6 +122,7 @@ class LightingScene extends CGFscene
 	{
 			this.checkKeys();
 			this.car.update();
+			this.crane.update();
 	}
 
 	display()
@@ -211,6 +212,10 @@ class LightingScene extends CGFscene
 		if (this.gui.isKeyPressed("KeyD"))
 		{
 			this.car.turnRight();
+		}
+		if (this.gui.isKeyPressed("KeyP"))
+		{
+			this.crane.pickUp();
 		}
 	 }
 };
