@@ -30,7 +30,7 @@ class MyWheel extends CGFobject{
 		this.scene.rotate(this.spinAngle,0,0,1);
 
         this.scene.pushMatrix();
-        this.scene.translate(0,0,-0.5);
+		this.scene.translate(0,0,-0.5);
         this.cylinderAppearance.apply();
 		this.cylinder.display();
 		this.scene.scale(0.5,0.5);

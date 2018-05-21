@@ -14,6 +14,7 @@ serialInclude([
 	'MyTerrain.js',
 	'MyWheel.js',
 	'MyPolygon.js',
+	'MySemisphere.js',
 
 
 

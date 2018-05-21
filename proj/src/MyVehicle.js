@@ -20,6 +20,13 @@ class MyVehicle extends CGFobject
     this.bodyAppearance.setShininess(100);
     this.bodyAppearance.loadTexture("../res/navy.jpg");
 
+    this.baseAppearance = new CGFappearance(this.scene);
+    this.baseAppearance.setAmbient(0.3,0.3,0.3,1);
+		this.baseAppearance.setDiffuse(0.1,0.1,0.1,1);
+		this.baseAppearance.setSpecular(0.3,0.3,0.3,1);
+    this.baseAppearance.setShininess(100);
+    this.baseAppearance.loadTexture("../res/metal.jpg");
+
     //The vehicle position
     this.x = 0;
     this.y = 0;
@@ -43,8 +50,8 @@ class MyVehicle extends CGFobject
         //Rotate to the current orientation
         this.scene.rotate(this.orientation,0,1,0);
         this.scene.translate(1.3,0,0);
-
-       //right back wheel
+        
+        //right back wheel
        this.scene.pushMatrix();
        this.scene.translate(0,0.5,0);
        this.scene.translate(-1.6, 0, 1);
@@ -80,20 +87,30 @@ class MyVehicle extends CGFobject
         //Base of the car
         this.scene.pushMatrix();
         this.scene.translate(-0.3,0.8,0);
-        this.scene.scale(4.5,0.5,2);
+        this.scene.scale(4.55,0.5,2.05);
+        this.baseAppearance.apply();
+        this.body.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(-0.3,1.2,0);
+        this.scene.scale(4,0.001,1.8);
         this.bodyAppearance.apply();
         this.body.display();
         this.scene.popMatrix();
+
         //Bumper
         this.scene.pushMatrix();
         this.scene.translate(1.25,1.3,0);
         this.scene.scale(1.4,0.8,2);
+        this.bodyAppearance.apply();
         this.body.display();
         this.scene.popMatrix();
+
         //Main Block of the car
         this.scene.pushMatrix();
-        this.scene.translate(0.3,1.5,0);
-        this.scene.scale(1.2,1.5,2);
+        this.scene.translate(0.3,1.7,0);
+        this.scene.scale(1.2,1.4,2);
         this.body.display();
         this.scene.popMatrix();
         //right side of trunk

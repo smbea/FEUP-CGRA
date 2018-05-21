@@ -39,7 +39,7 @@ class LightingScene extends CGFscene
 		super.init(application);
 
 		this.initCameras();
-    this.enableTextures(true);
+    	this.enableTextures(true);
 		this.initLights();
 
 		this.gl.clearColor(0.431, 0.772, 0.913, 1.0);
@@ -53,6 +53,7 @@ class LightingScene extends CGFscene
 
 		// Scene elements
 		this.car = new MyVehicle(this);
+		this.s = new MySemisphere(this, 8,20);
 
 		// Materials
 		this.materialDefault = new CGFappearance(this);
@@ -181,6 +182,8 @@ class LightingScene extends CGFscene
 		// ---- BEGIN Scene drawing section
 		this.car.display();
 		this.floor.display();
+		this.s.display();
+
 
 	};
 
