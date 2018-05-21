@@ -52,7 +52,6 @@ class MyVehicle extends CGFobject
         //Rotate to the current orientation
         this.scene.rotate(this.orientation,0,1,0);
         this.scene.translate(1.3,0,0);
-        this.scene.translate(0,5,0);
 
         //right back wheel
        this.scene.pushMatrix();
