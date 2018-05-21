@@ -14,11 +14,14 @@ class MyVehicle extends CGFobject
     this.body = new MyUnitCubeQuad(this.scene);
     this.quad = new MyQuad(this.scene);
     this.triangle = new MyTriangle(this.scene);
+    this.headlight = new MySemisphere(this.scene, 20,5);
+
+    this.default = new CGFappearance(this.scene);
 
     this.bodyAppearance = new CGFappearance(this.scene);
-    this.bodyAppearance.setAmbient(0.3,0.3,0.3,1);
-		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
-		this.bodyAppearance.setSpecular(0.3,0.3,0.3,1);
+    this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
+		this.bodyAppearance.setDiffuse(1,1,1,1);
+		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
     this.bodyAppearance.setShininess(100);
     this.bodyAppearance.loadTexture("../res/navy.jpg");
 
@@ -28,6 +31,15 @@ class MyVehicle extends CGFobject
 		this.baseAppearance.setSpecular(0.3,0.3,0.3,1);
     this.baseAppearance.setShininess(100);
     this.baseAppearance.loadTexture("../res/metal.jpg");
+
+    this.mirrorAppearance = new CGFappearance(this.scene);
+    this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
+		this.mirrorAppearance.setDiffuse(2,2,2,1);
+		this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
+    this.mirrorAppearance.setShininess(100);
+    this.mirrorAppearance.loadTexture("../res/mirror.jpg");
+
+    this.headlightAppearance = new CGFappearance(this.scene);
 
     //The vehicle position
     this.x = 0;
@@ -95,7 +107,7 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(-0.3,1.2,0);
+        this.scene.translate(-0.35,1.2,0);
         this.scene.scale(4,0.001,1.8);
         this.bodyAppearance.apply();
         this.body.display();
@@ -147,9 +159,25 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
+        this.scene.translate(0.96,2.06,0);
+        this.scene.rotate(Math.PI/2, 0,1,0);
+        this.scene.rotate(-Math.PI/4, 1,0,0);
+        this.scene.scale(1.9,0.9,0);
+        this.mirrorAppearance.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
         this.scene.translate(0.6,1.35,1);
         this.scene.scale(0.7,0.7,0);
         this.bodyAppearance.apply();
+        this.triangle.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0.63,1.4,1.01);
+        this.scene.scale(0.64,0.64,0);
+        this.mirrorAppearance.apply();
         this.triangle.display();
         this.scene.popMatrix();
 
@@ -160,6 +188,33 @@ class MyVehicle extends CGFobject
         this.scene.scale(0.7,0.7,0);
         this.bodyAppearance.apply();
         this.triangle.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.rotate(Math.PI,1,0,0);
+        this.scene.rotate(-Math.PI/2,0,0,1);
+        this.scene.translate(1.72,0.3,1.01);
+        this.scene.scale(0.64,0.64,0);
+        this.mirrorAppearance.apply();
+        this.triangle.display();
+        this.scene.popMatrix();
+
+        //headlights
+        this.scene.pushMatrix();
+        this.scene.rotate(Math.PI/2,0,1,0);
+        this.scene.translate(-0.8,1.5,1.9);
+        this.scene.scale(0.15,0.15,0.15);
+        this.headlightAppearance.apply();
+        this.headlight.display();
+        this.scene.popMatrix();
+
+        //headlights
+        this.scene.pushMatrix();
+        this.scene.rotate(Math.PI/2,0,1,0);
+        this.scene.translate(0.8,1.5,1.9);
+        this.scene.scale(0.15,0.15,0.15);
+        this.headlightAppearance.apply();
+        this.headlight.display();
         this.scene.popMatrix();
 
         this.scene.popMatrix();
