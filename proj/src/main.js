@@ -14,9 +14,9 @@ serialInclude([
 	'MyTerrain.js',
 	'MyWheel.js',
 	'MyPolygon.js',
+	'MyTrapezoid.js',
 	'MySemisphere.js',
-
-
+	'MyTriangle.js',
 
 	main=function() {
 		var app = new CGFapplication(document.body);

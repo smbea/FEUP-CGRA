@@ -12,6 +12,8 @@ class MyVehicle extends CGFobject
     this.frontWheel = new MyWheel(this.scene);
     this.backWheel = new MyWheel(this.scene);
     this.body = new MyUnitCubeQuad(this.scene);
+    this.quad = new MyQuad(this.scene);
+    this.triangle = new MyTriangle(this.scene);
 
     this.bodyAppearance = new CGFappearance(this.scene);
     this.bodyAppearance.setAmbient(0.3,0.3,0.3,1);
@@ -50,7 +52,8 @@ class MyVehicle extends CGFobject
         //Rotate to the current orientation
         this.scene.rotate(this.orientation,0,1,0);
         this.scene.translate(1.3,0,0);
-        
+        this.scene.translate(0,5,0);
+
         //right back wheel
        this.scene.pushMatrix();
        this.scene.translate(0,0.5,0);
@@ -109,27 +112,55 @@ class MyVehicle extends CGFobject
 
         //Main Block of the car
         this.scene.pushMatrix();
-        this.scene.translate(0.3,1.7,0);
+        this.scene.translate(0,1.7,0);
         this.scene.scale(1.2,1.4,2);
         this.body.display();
         this.scene.popMatrix();
+        
         //right side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-1.4,1.2,-0.2*(1/0.2)+0.1);
         this.scene.scale(2.23,1,0.2);
         this.body.display();
         this.scene.popMatrix();
+        
         //left side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-1.4,1.2,+0.2*(1/0.2)-0.1);
         this.scene.scale(2.23,1,0.2);
         this.body.display();
         this.scene.popMatrix();
-       //back side of trunk
+       
+        //back side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-2.45,1.2,0);
         this.scene.scale(0.2,1,2);
         this.body.display();
+        this.scene.popMatrix();
+
+        //front
+        this.scene.pushMatrix();
+        this.scene.translate(0.95,2.05,0);
+        this.scene.rotate(Math.PI/2, 0,1,0);
+        this.scene.rotate(-Math.PI/4, 1,0,0);
+        this.scene.scale(2,1,0);
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0.6,1.35,1);
+        this.scene.scale(0.7,0.7,0);
+        this.bodyAppearance.apply();
+        this.triangle.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.rotate(Math.PI,1,0,0);
+        this.scene.rotate(-Math.PI/2,0,0,1);
+        this.scene.translate(1.7,0.25,1);
+        this.scene.scale(0.7,0.7,0);
+        this.bodyAppearance.apply();
+        this.triangle.display();
         this.scene.popMatrix();
 
         this.scene.popMatrix();
