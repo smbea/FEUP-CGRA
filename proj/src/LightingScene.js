@@ -39,7 +39,7 @@ class LightingScene extends CGFscene
 		super.init(application);
 
 		this.initCameras();
-    this.enableTextures(true);
+    	this.enableTextures(true);
 		this.initLights();
 
 		this.gl.clearColor(0.431, 0.772, 0.913, 1.0);

@@ -18,6 +18,7 @@ serialInclude([
 	'MyTriangle.js',
 	'MyCrane.js',
 	'MyFullCylinder.js',
+	'MySideMirror.js',
 
 	main=function() {
 		var app = new CGFapplication(document.body);

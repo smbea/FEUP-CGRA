@@ -15,7 +15,8 @@ class MyVehicle extends CGFobject
     this.quad = new MyQuad(this.scene);
     this.triangle = new MyTriangle(this.scene);
     this.headlight = new MySemisphere(this.scene, 20,5);
-
+    this.cylinder = new MyCylinder(this.scene, 20,5);
+    this.mirror = new MySideMirror(this.scene);
     this.default = new CGFappearance(this.scene);
 
     this.bodyAppearance = new CGFappearance(this.scene);
@@ -221,7 +222,19 @@ class MyVehicle extends CGFobject
         this.headlight.display();
         this.scene.popMatrix();
 
+        this.scene.pushMatrix();
+        this.scene.translate(0.32,1.8,1);
+        this.mirror.display();
         this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(0.32,1.8,-1);
+        this.scene.rotate(Math.PI, 1,0,0);
+        this.mirror.display();
+        this.scene.popMatrix();
+
+
+       this.scene.popMatrix();
         };
 
 
