@@ -21,7 +21,7 @@ class MyVehicle extends CGFobject
 
     this.bodyAppearance = new CGFappearance(this.scene);
     this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
-		this.bodyAppearance.setDiffuse(1,1,1,1);
+		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
     this.bodyAppearance.setShininess(100);
     this.bodyAppearance.loadTexture("../res/navy.jpg");
@@ -129,21 +129,21 @@ class MyVehicle extends CGFobject
         //Main Block of the car
         this.scene.pushMatrix();
         this.scene.translate(0,1.7,0);
-        this.scene.scale(1.2,1.4,2);
+        this.scene.scale(1.2,1.4,1.99);
         this.body.display();
         this.scene.popMatrix();
         
         //right side of trunk
         this.scene.pushMatrix();
-        this.scene.translate(-1.4,1.2,-0.2*(1/0.2)+0.1);
-        this.scene.scale(2.23,1,0.2);
+        this.scene.translate(-0.2,1.2,-0.2*(1/0.2)+0.1);
+        this.scene.scale(4.3,1,0.2);
         this.body.display();
         this.scene.popMatrix();
         
         //left side of trunk
         this.scene.pushMatrix();
-        this.scene.translate(-1.4,1.2,+0.2*(1/0.2)-0.1);
-        this.scene.scale(2.23,1,0.2);
+        this.scene.translate(-0.2,1.2,+0.2*(1/0.2)-0.1);
+        this.scene.scale(4.3,1,0.2);
         this.body.display();
         this.scene.popMatrix();
        
@@ -159,7 +159,7 @@ class MyVehicle extends CGFobject
         this.scene.translate(0.95,2.05,0);
         this.scene.rotate(Math.PI/2, 0,1,0);
         this.scene.rotate(-Math.PI/4, 1,0,0);
-        this.scene.scale(2,1,0);
+        this.scene.scale(1.99,1,0);
         this.quad.display();
         this.scene.popMatrix();
 
