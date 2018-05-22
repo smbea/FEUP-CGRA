@@ -16,8 +16,8 @@ class MySideMirror extends CGFobject
 
         this.mirrorAppearance = new CGFappearance(this.scene);
         this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
-            this.mirrorAppearance.setDiffuse(2,2,2,1);
-            this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
+        this.mirrorAppearance.setDiffuse(2,2,2,1);
+        this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
         this.mirrorAppearance.setShininess(100);
         this.mirrorAppearance.loadTexture("../res/mirror.jpg");
 

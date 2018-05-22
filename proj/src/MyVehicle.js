@@ -18,6 +18,8 @@ class MyVehicle extends CGFobject
     this.cylinder = new MyCylinder(this.scene, 20,5);
     this.mirror = new MySideMirror(this.scene);
     this.default = new CGFappearance(this.scene);
+    this.leftWindow = new MyTrapezoid(this.scene,1);
+    this.rightWindow = new MyTrapezoid(this.scene,0);
 
     this.bodyAppearance = new CGFappearance(this.scene);
     this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
@@ -39,6 +41,14 @@ class MyVehicle extends CGFobject
 		this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
     this.mirrorAppearance.setShininess(100);
     this.mirrorAppearance.loadTexture("../res/mirror.jpg");
+
+    this.matriculaAppearance = new CGFappearance(this.scene);
+    this.matriculaAppearance.setAmbient(0.8,0.8,0.8,1);
+		this.matriculaAppearance.setDiffuse(2,2,2,1);
+		this.matriculaAppearance.setSpecular(0.3,0.3,0.3,1);
+    this.matriculaAppearance.setShininess(100);
+    this.matriculaAppearance.loadTexture("../res/plate.png");
+
 
     this.headlightAppearance = new CGFappearance(this.scene);
     this.headlightAppearance.setAmbient(1/255,1/255,1/153.8,1);
@@ -128,7 +138,7 @@ class MyVehicle extends CGFobject
 
         //Main Block of the car
         this.scene.pushMatrix();
-        this.scene.translate(0,1.7,0);
+        this.scene.translate(0,1.7,0.0005);
         this.scene.scale(1.2,1.4,1.99);
         this.body.display();
         this.scene.popMatrix();
@@ -164,25 +174,9 @@ class MyVehicle extends CGFobject
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(0.96,2.06,0);
-        this.scene.rotate(Math.PI/2, 0,1,0);
-        this.scene.rotate(-Math.PI/4, 1,0,0);
-        this.scene.scale(1.9,0.9,0);
-        this.mirrorAppearance.apply();
-        this.quad.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
         this.scene.translate(0.6,1.35,1);
         this.scene.scale(0.7,0.7,0);
         this.bodyAppearance.apply();
-        this.triangle.display();
-        this.scene.popMatrix();
-
-        this.scene.pushMatrix();
-        this.scene.translate(0.63,1.4,1.01);
-        this.scene.scale(0.64,0.64,0);
-        this.mirrorAppearance.apply();
         this.triangle.display();
         this.scene.popMatrix();
 
@@ -194,14 +188,31 @@ class MyVehicle extends CGFobject
         this.bodyAppearance.apply();
         this.triangle.display();
         this.scene.popMatrix();
+        
+        //windows
+          //front window
+        this.scene.pushMatrix();
+        this.scene.translate(0.96,2.06,0);
+        this.scene.rotate(Math.PI/2, 0,1,0);
+        this.scene.rotate(-Math.PI/4, 1,0,0);
+        this.scene.scale(1.9,0.9,0);
+        this.mirrorAppearance.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+          //side windows
+        this.scene.pushMatrix();
+        this.scene.translate(0.333,2.05,1.01);
+        this.scene.scale(0.3,0.64,0);
+        this.mirrorAppearance.apply();
+        this.rightWindow.display();
+        this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.rotate(Math.PI,1,0,0);
-        this.scene.rotate(-Math.PI/2,0,0,1);
-        this.scene.translate(1.72,0.3,1.01);
-        this.scene.scale(0.64,0.64,0);
+        this.scene.translate(0.333,2.05,-1.01);
+        this.scene.scale(0.3,0.64,0);
         this.mirrorAppearance.apply();
-        this.triangle.display();
+        this.leftWindow.display();
         this.scene.popMatrix();
 
         //headlights
@@ -222,17 +233,35 @@ class MyVehicle extends CGFobject
         this.headlight.display();
         this.scene.popMatrix();
 
+        
+        //side mirrors
         this.scene.pushMatrix();
-        this.scene.translate(0.32,1.8,1);
+        this.scene.translate(0.9,1.6,1);
         this.mirror.display();
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(0.32,1.8,-1);
+        this.scene.translate(0.9,1.6,-1);
         this.scene.rotate(Math.PI, 1,0,0);
         this.mirror.display();
         this.scene.popMatrix();
 
+        //license plates
+        this.scene.pushMatrix();
+        this.scene.translate(2,0.8,0);
+        this.scene.scale(1.5,0.25,0.8);
+        this.scene.rotate(Math.PI/2, 0,1,0);
+        this.matriculaAppearance.apply();
+        this.quad.display();
+        this.scene.popMatrix();
+
+        this.scene.pushMatrix();
+        this.scene.translate(-2.6,0.8,0);
+        this.scene.scale(1.5,0.25,0.8);
+        this.scene.rotate(-Math.PI/2, 0,1,0);
+        this.matriculaAppearance.apply();
+        this.quad.display();
+        this.scene.popMatrix();
 
        this.scene.popMatrix();
         };
