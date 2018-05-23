@@ -33,7 +33,6 @@ class MyCrane extends CGFobject{
 
 		this.scene.pushMatrix();
 		this.scene.rotate(this.orientation,0,1,0);
-
 		this.scene.pushMatrix();
 		if(this.hasCar){
 			this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize - 2.15,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
