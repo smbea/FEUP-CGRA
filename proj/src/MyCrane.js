@@ -6,17 +6,16 @@ class MyCrane extends CGFobject{
     this.cylinder = new MyFullCylinder(this.scene);
 		this.body = new MyUnitCubeQuad(this.scene);
 		this.orientation = 0;
-		this.leftAnimation = true;
-		this.rightAnimation = false;
 		this.moving = false;
 		this.firstPillarDegree = Math.PI/5.2;
 		this.firstPillarSize = 8;
 		this.secondPillarDegree = -Math.PI / 2.5;
 		this.secondPillarSize = 4;
 		this.stringSize = 2;
-		//END this.secondPillarDegree = -Math.PI / 6
 		this.secondPillarHeight = 0;
+
 		this.hasCar = false;
+		this.goBack = false;
 	};
 
 	display()
@@ -90,18 +89,40 @@ class MyCrane extends CGFobject{
 	};
 	update(){
 		if(this.moving){
-			this.orientation+= Math.PI/50;
+			if(!this.goBack){
+				this.orientation+= Math.PI/50;
 			if(this.orientation > Math.PI){
 				this.orientation = Math.PI;
-				this.secondPillarDegree += Math.PI/50;
-				if(this.secondPillarDegree >= -Math.PI / 6){
+
+				if(!this.hasCar){
+					this.secondPillarDegree += Math.PI/50;
+				}
+				if(this.secondPillarDegree >= -Math.PI / 6 && !this.hasCar){
 					this.secondPillarDegree = -Math.PI / 6;
+					this.hasCar = true;
+				}
+				if(this.hasCar){
+					this.secondPillarDegree -= Math.PI/100;
+				}
+				if(this.secondPillarDegree <=  -Math.PI / 2.5){
+					this.secondPillarDegree =  -Math.PI / 2.5;
+					this.goBack = true;
+				}
+			}
+		}
+				if(this.goBack){
+					this.orientation -= Math.PI/50;
+					if(this.orientation < 0){
+						this.orientation = 0;
+						this.moving = false;
+						this.hasCar = false;
+						this.goBack = false;
+					}
 				}
 
 			}
 
 		}
-	}
 
 	pickUp(){
 		this.moving = true;
