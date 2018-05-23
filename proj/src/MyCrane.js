@@ -5,6 +5,7 @@ class MyCrane extends CGFobject{
 		super(scene);
     this.cylinder = new MyFullCylinder(this.scene);
 		this.body = new MyUnitCubeQuad(this.scene);
+		this.car = new MyVehicle(this.scene);
 		this.orientation = 0;
 		this.moving = false;
 		this.firstPillarDegree = Math.PI/5.2;
@@ -21,7 +22,8 @@ class MyCrane extends CGFobject{
 	display()
 	{
 		this.scene.pushMatrix();
-		//this.scene.translate(-6,0,-4);
+		this.scene.translate(-6,0,-4);
+
 		//Base of Crane
     this.scene.pushMatrix();
     this.scene.scale(2,1,2);
@@ -31,6 +33,13 @@ class MyCrane extends CGFobject{
 
 		this.scene.pushMatrix();
 		this.scene.rotate(this.orientation,0,1,0);
+
+		this.scene.pushMatrix();
+		if(this.hasCar){
+			this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize - 2.15,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
+			this.car.display();
+		}
+		this.scene.popMatrix();
 
 		//First Turning Cilinder
 		this.scene.pushMatrix();
@@ -76,7 +85,7 @@ class MyCrane extends CGFobject{
 
 		//Magnet
 		this.scene.pushMatrix();
-		 this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
+		this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
 		this.scene.scale(1.4,0.5,1.4);
 		this.scene.translate(0,-0.5,0);
 		this.cylinder.display();
@@ -103,6 +112,7 @@ class MyCrane extends CGFobject{
 				}
 				if(this.hasCar){
 					this.secondPillarDegree -= Math.PI/100;
+
 				}
 				if(this.secondPillarDegree <=  -Math.PI / 2.5){
 					this.secondPillarDegree =  -Math.PI / 2.5;
