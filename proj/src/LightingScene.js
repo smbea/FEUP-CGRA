@@ -215,7 +215,7 @@ class LightingScene extends CGFscene
 		}
 		if (this.gui.isKeyPressed("KeyP"))
 		{
-			this.crane.pickUp();
+			this.crane.pickUp(this.car);
 		}
 	 }
 };

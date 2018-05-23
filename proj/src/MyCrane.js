@@ -134,8 +134,9 @@ class MyCrane extends CGFobject{
 
 		}
 
-	pickUp(){
+	pickUp(car){
 		this.moving = true;
+		this.car = car;
 	}
 
 
