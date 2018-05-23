@@ -60,6 +60,7 @@ class MyCrane extends CGFobject{
 		this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree),this.firstPillarSize * Math.sin(this.firstPillarDegree));
 		this.scene.rotate(Math.PI/2,0,0,1);
 		this.scene.scale(0.8,1,0.8);
+		this.scene.rotate(-this.secondPillarDegree,0,1,0);
 		this.scene.translate(0,-0.5,0);
     this.cylinder.display();
     this.scene.popMatrix();
@@ -111,6 +112,7 @@ class MyCrane extends CGFobject{
 				}
 				if(this.hasCar){
 					this.secondPillarDegree -= Math.PI/100;
+					this.car.startCraneMovement();
 
 				}
 				if(this.secondPillarDegree <=  -Math.PI / 2.5){
@@ -126,6 +128,7 @@ class MyCrane extends CGFobject{
 						this.moving = false;
 						this.hasCar = false;
 						this.goBack = false;
+						this.car.endCraneMovement();
 					}
 				}
 

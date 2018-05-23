@@ -69,6 +69,8 @@ class MyVehicle extends CGFobject
     this.turn = 0;
     //The orientation of the vehicle relative to the origin
     this.orientation = 0;
+    //Doesnt allow car to move while in the Crane
+    this.lockWheels = false;
   }
 
   display()
@@ -142,21 +144,21 @@ class MyVehicle extends CGFobject
         this.scene.scale(1.2,1.4,1.99);
         this.body.display();
         this.scene.popMatrix();
-        
+
         //right side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-0.2,1.2,-0.2*(1/0.2)+0.1);
         this.scene.scale(4.3,1,0.2);
         this.body.display();
         this.scene.popMatrix();
-        
+
         //left side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-0.2,1.2,+0.2*(1/0.2)-0.1);
         this.scene.scale(4.3,1,0.2);
         this.body.display();
         this.scene.popMatrix();
-       
+
         //back side of trunk
         this.scene.pushMatrix();
         this.scene.translate(-2.45,1.2,0);
@@ -188,7 +190,7 @@ class MyVehicle extends CGFobject
         this.bodyAppearance.apply();
         this.triangle.display();
         this.scene.popMatrix();
-        
+
         //windows
           //front window
         this.scene.pushMatrix();
@@ -233,7 +235,7 @@ class MyVehicle extends CGFobject
         this.headlight.display();
         this.scene.popMatrix();
 
-        
+
         //side mirrors
         this.scene.pushMatrix();
         this.scene.translate(0.9,1.6,1);
@@ -268,12 +270,14 @@ class MyVehicle extends CGFobject
 
 
     update(){
-      //Calculates the speed in the x axis
-      this.x += this.speed * Math.cos(this.orientation);
-      //Calculate the speed in the z axis
-      this.z += this.speed * Math.sin(-this.orientation);
-      //The orientation of the vehicle will depend on the angle of the wheels and its speed
-      this.orientation += this.turn * this.speed * 0.3;
+      if(!this.lockWheels){
+        //Calculates the speed in the x axis
+        this.x += this.speed * Math.cos(this.orientation);
+        //Calculate the speed in the z axis
+        this.z += this.speed * Math.sin(-this.orientation);
+        //The orientation of the vehicle will depend on the angle of the wheels and its speed
+        this.orientation += this.turn * this.speed * 0.3;
+      }
       //Calculates how many degrees in radians the wheel must turn relative to the speed
       this.rotation += 2 * this.speed;
       //Set the spinning angle of all wheels
@@ -318,4 +322,21 @@ class MyVehicle extends CGFobject
         this.turn = -Math.PI/3;
       }
     }
+    startCraneMovement(){
+      this.lockWheels = true;
+      this.x = -1;
+      this.y = 0;
+      this.z = 0;
+      this.speed = 0;
+    }
+    lowerCar(){
+      this.x = -6;
+      this.z = 4.34;
+    }
+    endCraneMovement(){
+      this.lockWheels = false;
+      this.x = -6;
+      this.z = 4.34;
+    }
+
 };
