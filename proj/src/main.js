@@ -20,6 +20,7 @@ serialInclude([
 	'MyFullCylinder.js',
 	'MySideMirror.js',
 	'MyTrapezoid.js',
+	'MyPlatform.js',
 
 	main=function() {
 		var app = new CGFapplication(document.body);

@@ -55,6 +55,7 @@ class LightingScene extends CGFscene
 		// Scene elements
 		this.car = new MyVehicle(this);
 		this.crane = new MyCrane(this);
+		this.platform = new MyPlatform(this);
 
 		// Materials
 		this.materialDefault = new CGFappearance(this);
@@ -184,6 +185,10 @@ class LightingScene extends CGFscene
 			this.car.display();
 		}
 		this.floor.display();
+		this.pushMatrix();
+		this.translate(-5.5,0,-10.4);
+		this.platform.display();
+		this.popMatrix();
 
 	};
 
@@ -218,6 +223,7 @@ class LightingScene extends CGFscene
 		}
 		if (this.gui.isKeyPressed("KeyP"))
 		{
+			this.car.lockWheel();
 			this.crane.pickUp(this.car);
 		}
 	 }
