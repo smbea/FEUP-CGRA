@@ -352,5 +352,11 @@ class MyVehicle extends CGFobject
     unlockWheel(){
       this.lockWheels = false;
     }
+    getX(){
+      return this.x;
+    }
+    getZ(){
+      return this.z;
+    }
 
 };

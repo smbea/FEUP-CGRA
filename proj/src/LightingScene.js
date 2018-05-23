@@ -223,8 +223,14 @@ class LightingScene extends CGFscene
 		}
 		if (this.gui.isKeyPressed("KeyP"))
 		{
-			this.car.lockWheel();
-			this.crane.pickUp(this.car);
+			console.log("CAR X");
+			console.log(this.car.getX());
+			console.log("CAR Z:");
+			console.log(this.car.getZ());
+			if((Math.abs(this.car.getX()+5.9) < 0.7) && (Math.abs(this.car.getZ()+ 10.7) < 1)){
+				this.car.lockWheel();
+				this.crane.pickUp(this.car);
+			}
 		}
 	 }
 };
