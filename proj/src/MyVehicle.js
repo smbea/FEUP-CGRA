@@ -71,6 +71,7 @@ class MyVehicle extends CGFobject
     this.orientation = 0;
     //Doesnt allow car to move while in the Crane
     this.lockWheels = false;
+    this.end = true;
   }
 
   display()
@@ -323,20 +324,27 @@ class MyVehicle extends CGFobject
       }
     }
     startCraneMovement(){
-      this.lockWheels = true;
-      this.x = -1;
-      this.y = 0;
-      this.z = 0;
-      this.speed = 0;
+      if(this.end){
+        this.lockWheels = true;
+        this.x = -1;
+        this.y = 0;
+        this.z = 0;
+        this.speed = 0;
+        this.orientation = this.orientation - Math.PI;
+      }
+      this.end = false;
     }
     lowerCar(){
       this.x = -6;
       this.z = 4.34;
     }
     endCraneMovement(){
-      this.lockWheels = false;
-      this.x = -6;
-      this.z = 4.34;
+      if(!this.end){
+        this.lockWheels = false;
+        this.x = -6;
+        this.z = 4.34;
+      }
+      this.end = true;
     }
 
 };

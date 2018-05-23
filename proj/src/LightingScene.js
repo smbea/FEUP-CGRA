@@ -50,6 +50,7 @@ class LightingScene extends CGFscene
 
 		this.axis = new CGFaxis(this);
 		this.axisToggled = false;
+		this.hideCar = false;
 
 		// Scene elements
 		this.car = new MyVehicle(this);
@@ -122,7 +123,7 @@ class LightingScene extends CGFscene
 	{
 			this.checkKeys();
 			this.car.update();
-			this.crane.update();
+			this.hideCar = this.crane.update();
 	}
 
 	display()
@@ -179,7 +180,9 @@ class LightingScene extends CGFscene
 
 		// ---- BEGIN Scene drawing section
 		this.crane.display();
-		this.car.display();
+		if(!this.hideCar){
+			this.car.display();
+		}
 		this.floor.display();
 
 	};

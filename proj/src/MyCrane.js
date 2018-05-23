@@ -17,6 +17,7 @@ class MyCrane extends CGFobject{
 
 		this.hasCar = false;
 		this.goBack = false;
+		this.hideCar = false;
 	};
 
 	display()
@@ -113,7 +114,7 @@ class MyCrane extends CGFobject{
 				if(this.hasCar){
 					this.secondPillarDegree -= Math.PI/100;
 					this.car.startCraneMovement();
-
+					this.hideCar = true;
 				}
 				if(this.secondPillarDegree <=  -Math.PI / 2.5){
 					this.secondPillarDegree =  -Math.PI / 2.5;
@@ -125,13 +126,14 @@ class MyCrane extends CGFobject{
 					this.orientation -= Math.PI/50;
 					if(this.orientation < 0){
 						this.orientation = 0;
+						this.hideCar = false;
 						this.moving = false;
 						this.hasCar = false;
 						this.goBack = false;
 						this.car.endCraneMovement();
 					}
 				}
-
+				return this.hideCar;
 			}
 
 		}
