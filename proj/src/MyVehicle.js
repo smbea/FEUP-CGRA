@@ -359,4 +359,9 @@ class MyVehicle extends CGFobject
       return this.z;
     }
 
+    setTexture(texture){
+      this.bodyAppearance =texture;
+      this.mirror.setTexture(texture);
+    }
+
 };

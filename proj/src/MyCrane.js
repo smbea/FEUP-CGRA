@@ -3,9 +3,13 @@ class MyCrane extends CGFobject{
 	constructor(scene)
 	{
 		super(scene);
-    this.cylinder = new MyFullCylinder(this.scene);
+    	this.cylinder = new MyFullCylinder(this.scene);
 		this.body = new MyUnitCubeQuad(this.scene);
 		this.car = new MyVehicle(this.scene);
+
+		this.materialDefault = new CGFappearance(this.scene);
+
+
 		this.orientation = 0;
 		this.moving = false;
 		this.firstPillarDegree = Math.PI/5.2;
@@ -27,7 +31,8 @@ class MyCrane extends CGFobject{
 
 		//Base of Crane
     this.scene.pushMatrix();
-    this.scene.scale(2,1,2);
+	this.scene.scale(2,1,2);
+	this.materialDefault.apply();
     this.cylinder.display();
     this.scene.popMatrix();
 		this.scene.translate(0,1,0);
@@ -43,7 +48,8 @@ class MyCrane extends CGFobject{
 
 		//First Turning Cilinder
 		this.scene.pushMatrix();
-    this.cylinder.display();
+	this.cylinder.display();
+	this.materialDefault.apply();
     this.scene.popMatrix();
 
 		this.scene.pushMatrix();
@@ -53,6 +59,7 @@ class MyCrane extends CGFobject{
 		this.scene.rotate(this.firstPillarDegree,1,0,0);
 		this.scene.scale(0.8,this.firstPillarSize,0.8);
 		this.scene.translate(0,0.5,0);
+		this.materialDefault.apply();
 		this.body.display();
 		this.scene.popMatrix();
 
@@ -63,6 +70,7 @@ class MyCrane extends CGFobject{
 		this.scene.scale(0.8,1,0.8);
 		this.scene.rotate(-this.secondPillarDegree,0,1,0);
 		this.scene.translate(0,-0.5,0);
+		this.materialDefault.apply();
     this.cylinder.display();
     this.scene.popMatrix();
 
@@ -73,6 +81,7 @@ class MyCrane extends CGFobject{
 		this.scene.rotate(this.secondPillarDegree + Math.PI,1,0,0);
 		this.scene.scale(0.8,this.secondPillarSize,0.8);
 		this.scene.translate(0,0.5,0);
+		this.materialDefault.apply();
 		this.body.display();
 		this.scene.popMatrix();
 
@@ -89,6 +98,7 @@ class MyCrane extends CGFobject{
 		this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
 		this.scene.scale(1.4,0.5,1.4);
 		this.scene.translate(0,-0.5,0);
+		this.materialDefault.apply();
 		this.cylinder.display();
 		this.scene.popMatrix();
 

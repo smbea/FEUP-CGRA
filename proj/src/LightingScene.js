@@ -35,7 +35,8 @@ class LightingScene extends CGFscene
 		this.Light3=true;
 		this.Light4=true;
 		this.acceleration=2.5;
-		this.textures = [this.texture1,this.texture2,this.texture3];
+		
+		
 		super.init(application);
 
 		this.initCameras();
@@ -61,6 +62,36 @@ class LightingScene extends CGFscene
 		this.materialDefault = new CGFappearance(this);
 		this.floor = new MyTerrain(this, 8, this.altimetry);
 		this.setUpdatePeriod(1000/this.fps);
+
+		this.carTexture1 = new CGFappearance(this);
+		this.carTexture1.setAmbient(0.8,0.8,0.8,1);
+		this.carTexture1.setDiffuse(0.8,0.8,0.8,1);
+		this.carTexture1.setSpecular(0.8,0.8,0.8,1);
+		this.carTexture1.setShininess(100);
+		this.carTexture1.loadTexture("../res/wood.jpg");
+		
+		this.carTexture2 = new CGFappearance(this);
+		this.carTexture2.setAmbient(0.8,0.8,0.8,1);
+		this.carTexture2.setDiffuse(0.8,0.8,0.8,1);
+		this.carTexture2.setSpecular(0.8,0.8,0.8,1);
+		this.carTexture2.setShininess(100);
+		this.carTexture2.loadTexture("../res/navy.jpg");
+
+		this.carTexture3 = new CGFappearance(this);
+		this.carTexture3.setAmbient(0.8,0.8,0.8,1);
+		this.carTexture3.setDiffuse(0.8,0.8,0.8,1);
+		this.carTexture3.setSpecular(0.8,0.8,0.8,1);
+		this.carTexture3.setShininess(100);
+		this.carTexture3.loadTexture("../res/navy.jpg");
+
+		this.carAppearences = [this.carTexture1,this.carTexture2,this.carTexture3];
+		this.carAppearancesList = {
+			'carTexture1': 0,
+			'carTexture2': 1,
+			'carTexture3': 2,
+		}
+		this.carTexture = 'carTexture1';
+   		this.currCarAppearance = this.carAppearancesList[this.carTexture];
 
 	};
 
@@ -182,6 +213,7 @@ class LightingScene extends CGFscene
 		// ---- BEGIN Scene drawing section
 		this.crane.display();
 		if(!this.hideCar){
+			this.car.setTexture(this.carAppearences[this.currCarAppearance]);
 			this.car.display();
 		}
 		this.floor.display();

@@ -47,4 +47,9 @@ class MySideMirror extends CGFobject
         this.surface.display();
         this.scene.popMatrix();
     };
+
+
+    setTexture(texture){
+        this.bodyAppearance=texture;
+    }
 };
