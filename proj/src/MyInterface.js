@@ -51,7 +51,7 @@ class MyInterface extends CGFinterface {
 		this.gui.add(this.scene, 'ToggleAxis');
 		//this.gui.add(this.scene, 'submarineTexture', ['blueMetal', 'darkMetal', 'greyMetal', 'lightMetal', 'sky']);
 
-    this.gui.add(this.scene, 'carTexture',['basic','wood','carTexture3']);
+    this.gui.add(this.scene, 'carTexture',['basic','wood','holographic']);
 
     this.initKeys();
 

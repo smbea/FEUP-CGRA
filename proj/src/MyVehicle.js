@@ -360,7 +360,7 @@ class MyVehicle extends CGFobject
     }
 
     setTexture(texture){
-      this.bodyAppearance =texture;
+      this.bodyAppearance = texture;
       this.mirror.setTexture(texture);
     }
 

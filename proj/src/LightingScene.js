@@ -78,6 +78,13 @@ class LightingScene extends CGFscene
 		this.carTexture1.setSpecular(0.8,0.8,0.8,1);
 		this.carTexture1.setShininess(100);
 		this.carTexture1.loadTexture("../res/navy.jpg");
+
+		this.mirrorTexture1 = new CGFappearance(this);
+		this.mirrorTexture1.setAmbient(0.8,0.8,0.8,1);
+		this.mirrorTexture1.setDiffuse(0.8,0.8,0.8,1);
+		this.mirrorTexture1.setSpecular(0.8,0.8,0.8,1);
+		this.mirrorTexture1.setShininess(100);
+		this.mirrorTexture1.loadTexture("../res/navy.jpg");
 		
 		this.carTexture2 = new CGFappearance(this);
 		this.carTexture2.setAmbient(0.8,0.8,0.8,1);
@@ -91,13 +98,14 @@ class LightingScene extends CGFscene
 		this.carTexture3.setDiffuse(0.8,0.8,0.8,1);
 		this.carTexture3.setSpecular(0.8,0.8,0.8,1);
 		this.carTexture3.setShininess(100);
-		this.carTexture3.loadTexture("../res/navy.jpg");
+		this.carTexture3.loadTexture("../res/holographic.jpeg");
+
 
 		this.carAppearences = [this.carTexture1,this.carTexture2,this.carTexture3];
 		this.carAppearancesList = {
 			'basic': 0,
 			'wood': 1,
-			'carTexture3': 2,
+			'holographic': 2,
 		}
 		this.carTexture = 'basic';
    		this.currCarAppearance = this.carAppearancesList[this.carTexture];
@@ -228,6 +236,7 @@ class LightingScene extends CGFscene
 		// ---- BEGIN Scene drawing section
 		this.crane.display();
 		if(!this.hideCar){
+			var oi=[1,2];
 			this.car.setTexture(this.carAppearences[this.currCarAppearance]);
 			this.car.display();
 		}

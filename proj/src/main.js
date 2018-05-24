@@ -22,6 +22,7 @@ serialInclude([
 	'MyTrapezoid.js',
 	'MyPlatform.js',
 	'MyLake.js',
+	
 
 	main=function() {
 		var app = new CGFapplication(document.body);
