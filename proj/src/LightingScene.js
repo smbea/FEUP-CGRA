@@ -77,14 +77,14 @@ class LightingScene extends CGFscene
 		this.carTexture1.setDiffuse(0.8,0.8,0.8,1);
 		this.carTexture1.setSpecular(0.8,0.8,0.8,1);
 		this.carTexture1.setShininess(100);
-		this.carTexture1.loadTexture("../res/wood.jpg");
+		this.carTexture1.loadTexture("../res/navy.jpg");
 		
 		this.carTexture2 = new CGFappearance(this);
 		this.carTexture2.setAmbient(0.8,0.8,0.8,1);
 		this.carTexture2.setDiffuse(0.8,0.8,0.8,1);
 		this.carTexture2.setSpecular(0.8,0.8,0.8,1);
 		this.carTexture2.setShininess(100);
-		this.carTexture2.loadTexture("../res/navy.jpg");
+		this.carTexture2.loadTexture("../res/wood.jpg");
 
 		this.carTexture3 = new CGFappearance(this);
 		this.carTexture3.setAmbient(0.8,0.8,0.8,1);
@@ -95,11 +95,11 @@ class LightingScene extends CGFscene
 
 		this.carAppearences = [this.carTexture1,this.carTexture2,this.carTexture3];
 		this.carAppearancesList = {
-			'carTexture1': 0,
-			'carTexture2': 1,
+			'basic': 0,
+			'wood': 1,
 			'carTexture3': 2,
 		}
-		this.carTexture = 'carTexture1';
+		this.carTexture = 'basic';
    		this.currCarAppearance = this.carAppearancesList[this.carTexture];
 
 	};

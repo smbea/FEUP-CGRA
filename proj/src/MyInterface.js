@@ -48,8 +48,10 @@ class MyInterface extends CGFinterface {
 		// min and max values can be specified as parameters
 
 		this.gui.add(this.scene, 'acceleration', 1, 5);
-    this.gui.add(this.scene, 'ToggleAxis');
-    this.gui.add(this.scene, 'carAppearences',['Texture1','Texture2','Texture3']);
+		this.gui.add(this.scene, 'ToggleAxis');
+		//this.gui.add(this.scene, 'submarineTexture', ['blueMetal', 'darkMetal', 'greyMetal', 'lightMetal', 'sky']);
+
+    this.gui.add(this.scene, 'carTexture',['basic','wood','carTexture3']);
 
     this.initKeys();
 

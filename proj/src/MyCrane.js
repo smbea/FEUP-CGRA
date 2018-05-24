@@ -48,8 +48,8 @@ class MyCrane extends CGFobject{
 
 		//First Turning Cilinder
 		this.scene.pushMatrix();
+		this.materialDefault.apply();
 	this.cylinder.display();
-	this.materialDefault.apply();
     this.scene.popMatrix();
 
 		this.scene.pushMatrix();
@@ -90,6 +90,7 @@ class MyCrane extends CGFobject{
 	  this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree)  ,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
 		this.scene.scale(0.05,this.stringSize,0.05);
 		this.scene.translate(0,-1,0);
+		this.materialDefault.apply();
 		this.cylinder.display();
 		this.scene.popMatrix();
 
