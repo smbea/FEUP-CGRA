@@ -25,7 +25,7 @@ class LightingScene extends CGFscene
 						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 25.0, 0.0, 0.0 ],
 						[ 0.0 , 0.0 , 0.0,0.0, 0.0, 0.0, 30.0, 0.0 ],
 						[ 0.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
-						[ 5.0 , 0.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 25.0 ],
+						[ 5.0 , 0.0 , 0.0, -5.0, -20.0, -3.0, 0.0, 25.0 ],
 						[ 10.0 , 15.0 , 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 						];
 
@@ -53,15 +53,24 @@ class LightingScene extends CGFscene
 		this.axisToggled = false;
 		this.hideCar = false;
 
+		this.lastUpdateTime=0;
+
 		// Scene elements
 		this.car = new MyVehicle(this);
 		this.crane = new MyCrane(this);
 		this.platform = new MyPlatform(this);
+		this.lake = new MyLake(this);
 
 		// Materials
 		this.materialDefault = new CGFappearance(this);
 		this.floor = new MyTerrain(this, 8, this.altimetry);
 		this.setUpdatePeriod(1000/this.fps);
+
+		this.platformAppearence = new CGFappearance(this);
+		this.platformAppearence.setAmbient(0,0,0,1);
+		this.platformAppearence.setDiffuse(0,0,0,1);
+		this.platformAppearence.setSpecular(0.8,0.8,0.8,1);
+		this.platformAppearence.setShininess(100);
 
 		this.carTexture1 = new CGFappearance(this);
 		this.carTexture1.setAmbient(0.8,0.8,0.8,1);
@@ -154,8 +163,14 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 			this.checkKeys();
+			this.currCarAppearance = this.carAppearancesList[this.carTexture];
 			this.car.update();
 			this.hideCar = this.crane.update();
+
+			let time = (currTime-this.lastUpdateTime);
+			this.lake.setAngle(this.lake.getAngle()+  time/50000);
+			this.lastUpdateTime = currTime;
+		
 	}
 
 	display()
@@ -219,9 +234,13 @@ class LightingScene extends CGFscene
 		this.floor.display();
 		this.pushMatrix();
 		this.translate(-6.5,0,-10.9);
+		this.platformAppearence.apply();
 		this.platform.display();
 		this.popMatrix();
 
+		this.lake.display();
+
+		
 	};
 
 	ToggleAxis()
