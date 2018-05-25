@@ -22,6 +22,9 @@ serialInclude([
 	'MyTrapezoid.js',
 	'MyPlatform.js',
 	'MyLake.js',
+	'MyBasicAppearence.js',
+	'MyHolographicAppearence.js',
+	'MyWoodAppearence.js',
 	
 
 	main=function() {

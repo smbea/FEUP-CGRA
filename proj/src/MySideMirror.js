@@ -8,18 +8,8 @@ class MySideMirror extends CGFobject
         this.surface = new MyPolygon(this.scene, 20);
 
         this.bodyAppearance = new CGFappearance(this.scene);
-        this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
-		this.bodyAppearance.setDiffuse(1,1,1,1);
-		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
-        this.bodyAppearance.setShininess(100);
-        this.bodyAppearance.loadTexture("../res/navy.jpg");
 
         this.mirrorAppearance = new CGFappearance(this.scene);
-        this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
-        this.mirrorAppearance.setDiffuse(2,2,2,1);
-        this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
-        this.mirrorAppearance.setShininess(100);
-        this.mirrorAppearance.loadTexture("../res/mirror.jpg");
 
         this.initBuffers();
     };
@@ -50,6 +40,7 @@ class MySideMirror extends CGFobject
 
 
     setTexture(texture){
-        this.bodyAppearance=texture;
+        this.bodyAppearance = texture.bodyAppearance;
+      this.mirrorAppearance = texture.mirrorAppearance;
     }
 };

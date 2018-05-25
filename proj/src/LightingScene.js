@@ -72,36 +72,14 @@ class LightingScene extends CGFscene
 		this.platformAppearence.setSpecular(0.8,0.8,0.8,1);
 		this.platformAppearence.setShininess(100);
 
-		this.carTexture1 = new CGFappearance(this);
-		this.carTexture1.setAmbient(0.8,0.8,0.8,1);
-		this.carTexture1.setDiffuse(0.8,0.8,0.8,1);
-		this.carTexture1.setSpecular(0.8,0.8,0.8,1);
-		this.carTexture1.setShininess(100);
-		this.carTexture1.loadTexture("../res/navy.jpg");
+		this.carAppearence1 = new MyBasicAppearence(this);
+		this.carAppearence2 = new MyWoodAppearence(this);
+		this.carAppearence3 = new MyHolographicAppearence(this);
 
-		this.mirrorTexture1 = new CGFappearance(this);
-		this.mirrorTexture1.setAmbient(0.8,0.8,0.8,1);
-		this.mirrorTexture1.setDiffuse(0.8,0.8,0.8,1);
-		this.mirrorTexture1.setSpecular(0.8,0.8,0.8,1);
-		this.mirrorTexture1.setShininess(100);
-		this.mirrorTexture1.loadTexture("../res/navy.jpg");
 		
-		this.carTexture2 = new CGFappearance(this);
-		this.carTexture2.setAmbient(0.8,0.8,0.8,1);
-		this.carTexture2.setDiffuse(0.8,0.8,0.8,1);
-		this.carTexture2.setSpecular(0.8,0.8,0.8,1);
-		this.carTexture2.setShininess(100);
-		this.carTexture2.loadTexture("../res/wood.jpg");
-
-		this.carTexture3 = new CGFappearance(this);
-		this.carTexture3.setAmbient(0.8,0.8,0.8,1);
-		this.carTexture3.setDiffuse(0.8,0.8,0.8,1);
-		this.carTexture3.setSpecular(0.8,0.8,0.8,1);
-		this.carTexture3.setShininess(100);
-		this.carTexture3.loadTexture("../res/holographic.jpeg");
 
 
-		this.carAppearences = [this.carTexture1,this.carTexture2,this.carTexture3];
+		this.carAppearences = [this.carAppearence1,this.carAppearence2,this.carAppearence3];
 		this.carAppearancesList = {
 			'basic': 0,
 			'wood': 1,
@@ -171,9 +149,10 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 			this.checkKeys();
-			this.currCarAppearance = this.carAppearancesList[this.carTexture];
+			
 			this.car.update();
 			this.hideCar = this.crane.update();
+			this.currCarAppearance = this.carAppearancesList[this.carTexture];
 
 			let time = (currTime-this.lastUpdateTime);
 			this.lake.setAngle(this.lake.getAngle()+  time/50000);

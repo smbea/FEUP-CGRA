@@ -22,11 +22,6 @@ class MyVehicle extends CGFobject
     this.rightWindow = new MyTrapezoid(this.scene,0);
 
     this.bodyAppearance = new CGFappearance(this.scene);
-    this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
-		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
-		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
-    this.bodyAppearance.setShininess(100);
-    this.bodyAppearance.loadTexture("../res/navy.jpg");
 
     this.baseAppearance = new CGFappearance(this.scene);
     this.baseAppearance.setAmbient(0.3,0.3,0.3,1);
@@ -36,19 +31,8 @@ class MyVehicle extends CGFobject
     this.baseAppearance.loadTexture("../res/metal.jpg");
 
     this.mirrorAppearance = new CGFappearance(this.scene);
-    this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
-		this.mirrorAppearance.setDiffuse(2,2,2,1);
-		this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
-    this.mirrorAppearance.setShininess(100);
-    this.mirrorAppearance.loadTexture("../res/mirror.jpg");
 
     this.matriculaAppearance = new CGFappearance(this.scene);
-    this.matriculaAppearance.setAmbient(0.8,0.8,0.8,1);
-		this.matriculaAppearance.setDiffuse(2,2,2,1);
-		this.matriculaAppearance.setSpecular(0.3,0.3,0.3,1);
-    this.matriculaAppearance.setShininess(100);
-    this.matriculaAppearance.loadTexture("../res/plate.png");
-
 
     this.headlightAppearance = new CGFappearance(this.scene);
     this.headlightAppearance.setAmbient(1/255,1/255,1/153.8,1);
@@ -360,8 +344,12 @@ class MyVehicle extends CGFobject
     }
 
     setTexture(texture){
-      this.bodyAppearance = texture;
+      this.bodyAppearance = texture.bodyAppearance;
+      this.mirrorAppearance = texture.mirrorAppearance;
+      this.matriculaAppearance = texture.matriculaAppearance;
       this.mirror.setTexture(texture);
+      this.backWheel.setTexture(texture);
+      this.frontWheel.setTexture(texture);
     }
 
 };
