@@ -56,6 +56,7 @@ class MyVehicle extends CGFobject
     //Doesnt allow car to move while in the Crane
     this.lockWheels = false;
     this.end = true;
+    this.falling = false;
   }
 
   display()
@@ -277,6 +278,14 @@ class MyVehicle extends CGFobject
       if(this.turn < 0){
         this.turn += Math.PI / 50;
       }
+      if(this.falling){
+        this.y -= 0.2;
+        if(this.y <=0){
+          this.y = 0;
+          this.falling = false;
+          this.endCraneMovement();
+        }
+      }
 
     }
     accelerate(acel){
@@ -322,11 +331,14 @@ class MyVehicle extends CGFobject
       this.x = -6;
       this.z = 4.34;
     }
+    startFalling(){
+      this.falling = true
+      this.x = -6;
+      this.z = 4.34;
+    }
     endCraneMovement(){
       if(!this.end){
         this.lockWheels = false;
-        this.x = -6;
-        this.z = 4.34;
       }
       this.end = true;
     }
@@ -350,6 +362,9 @@ class MyVehicle extends CGFobject
       this.mirror.setTexture(texture);
       this.backWheel.setTexture(texture);
       this.frontWheel.setTexture(texture);
+    }
+    setY(yCoordinate){
+      this.y = yCoordinate;
     }
 
 };
