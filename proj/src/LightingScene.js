@@ -10,8 +10,6 @@ class LightingScene extends CGFscene
 {
 	constructor()
 	{
-
-
 		super();
 	};
 
@@ -30,10 +28,12 @@ class LightingScene extends CGFscene
 						];
 
 		this.fps = 60;
+		//Booleans used on the interface for the lights
 		this.Light1=true;
 		this.Light2=true;
 		this.Light3=true;
 		this.Light4=true;
+		//Factor by which the speed will increase
 		this.acceleration=2.5;
 
 
@@ -77,9 +77,6 @@ class LightingScene extends CGFscene
 		this.carAppearence2 = new MyWoodAppearence(this);
 		this.carAppearence3 = new MyHolographicAppearence(this);
 
-
-
-
 		this.carAppearences = [this.carAppearence1,this.carAppearence2,this.carAppearence3];
 		this.carAppearancesList = {
 			'basic': 0,
@@ -110,13 +107,11 @@ class LightingScene extends CGFscene
 		this.lights[2].setPosition(-5, 6.0, 10.0, 1.0);
 		this.lights[2].setVisible(false);
 
-		//this.lights[1].setVisible(true); // show marker on light position (different from enabled)
 		this.lights[3].setPosition(5, 6.0, 10.0, 1.0);
 		this.lights[3].setVisible(false); // show marker on light position (different from enabled)
 
 		this.lights[0].setAmbient(0, 0, 0, 1);
 		this.lights[0].setDiffuse(1.0, 1.0, 1.0, 1.0);
-		//this.lights[0].setSpecular(1,1,0,1);
 		this.lights[0].enable();
 
 		this.lights[1].setAmbient(0, 0, 0, 1);
@@ -125,19 +120,15 @@ class LightingScene extends CGFscene
 
 		this.lights[2].setAmbient(0, 0, 0, 1);
 		this.lights[2].setDiffuse(1.0, 1.0, 1.0, 1.0);
-		//this.lights[2].setSpecular(1,1,1,1);
 		this.lights[2].enable();
 
 		this.lights[3].setAmbient(0, 0, 0, 1);
 		this.lights[3].setDiffuse(1.0, 1.0, 1.0, 1.0);
-	//	this.lights[3].setSpecular(1,1,0,1);
+
 		this.lights[3].setConstantAttenuation(0);
-	  	this.lights[3].setLinearAttenuation(0);
-	  	this.lights[3].setQuadraticAttenuation(0.2);
+	  this.lights[3].setLinearAttenuation(0);
+	  this.lights[3].setQuadraticAttenuation(0.2);
 		this.lights[3].enable();
-
-
-
 
 	};
 
@@ -152,9 +143,11 @@ class LightingScene extends CGFscene
 			this.checkKeys();
 
 			this.car.update();
+			//Boolean to verify if it should be the Crane in charge of drawing the car or the scene
 			this.hideCar = this.crane.update();
+			//Determines the texture used in the car
 			this.currCarAppearance = this.carAppearancesList[this.carTexture];
-
+			//Makes the lake rotate
 			let time = (currTime-this.lastUpdateTime);
 			this.lake.setAngle(this.lake.getAngle()+  time/50000);
 			this.lastUpdateTime = currTime;
@@ -215,6 +208,7 @@ class LightingScene extends CGFscene
 
 		// ---- BEGIN Scene drawing section
 		this.crane.display();
+		//If the scene is in charge of drawing the car
 		if(!this.hideCar){
 			this.car.setTexture(this.carAppearences[this.currCarAppearance]);
 			this.car.display();
@@ -262,8 +256,11 @@ class LightingScene extends CGFscene
 		}
 		if (this.gui.isKeyPressed("KeyP"))
 		{
+			//Verify if the car is within the bounds of the platform
 			if((Math.abs(this.car.getX()+5.9) < 1) && (Math.abs(this.car.getZ()+ 10.7) < 1)){
+				//Stop the car and prevent it from moving
 				this.car.lockAndStopWheel();
+				//Start animation
 				this.crane.pickUp(this.car);
 			}
 		}

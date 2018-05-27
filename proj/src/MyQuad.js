@@ -1,5 +1,5 @@
 /**
- * MyObject
+ * MyQuad
  * @param gl {WebGLRenderingContext}
  * @constructor
  */

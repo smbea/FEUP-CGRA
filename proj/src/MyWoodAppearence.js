@@ -2,9 +2,9 @@ class MyWoodAppearence extends CGFobject
 {
 	constructor(scene)
 	{
-        super(scene);
+    super(scene);
 
-        this.bodyAppearance = new CGFappearance(this.scene);
+    this.bodyAppearance = new CGFappearance(this.scene);
 		this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
 		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
@@ -12,7 +12,7 @@ class MyWoodAppearence extends CGFobject
 		this.bodyAppearance.loadTexture("../res/wood.jpg");
 
 		this.mirrorAppearance = new CGFappearance(this.scene);
-        this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
+    this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
 		this.mirrorAppearance.setDiffuse(2,2,2,1);
 		this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
     this.mirrorAppearance.setShininess(100);

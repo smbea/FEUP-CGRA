@@ -16,25 +16,25 @@ class MySideMirror extends CGFobject
 
     display(){
         this.scene.pushMatrix();
-        this.scene.scale(0.02,0.02,0.1);
-        this.bodyAppearance.apply();
-        this.cylinder.display();
+        	this.scene.scale(0.02,0.02,0.1);
+        	this.bodyAppearance.apply();
+        	this.cylinder.display();
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(-0.05,0,0.12);
-        this.scene.scale(0.1,0.1,0.12);
-        this.scene.rotate(Math.PI/4,0,1,0);
-        this.bodyAppearance.apply();
-        this.semi.display();
+        	this.scene.translate(-0.05,0,0.12);
+        	this.scene.scale(0.1,0.1,0.12);
+        	this.scene.rotate(Math.PI/4,0,1,0);
+        	this.bodyAppearance.apply();
+        	this.semi.display();
         this.scene.popMatrix();
 
         this.scene.pushMatrix();
-        this.scene.translate(-0.05,0,0.12);
-        this.scene.scale(0.1,0.1,0.12);
-        this.scene.rotate(Math.PI*5/4,0,1,0);
-        this.mirrorAppearance.apply();
-        this.surface.display();
+        	this.scene.translate(-0.05,0,0.12);
+        	this.scene.scale(0.1,0.1,0.12);
+        	this.scene.rotate(Math.PI*5/4,0,1,0);
+        	this.mirrorAppearance.apply();
+        	this.surface.display();
         this.scene.popMatrix();
     };
 

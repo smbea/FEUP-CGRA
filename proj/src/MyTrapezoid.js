@@ -24,11 +24,10 @@ class MyTrapezoid extends CGFobject
             3, -0.5, 0,
             0.9, 0.5, 0,
             -3, 0.5, 0
-      
           ];
 
           if(this.side == 1){
-      
+
           this.indices = [
             3,2,1,
             3, 1, 0
@@ -39,14 +38,14 @@ class MyTrapezoid extends CGFobject
                 0, 1, 3
               ];
         }
-      
+
           this.normals = [
               0, 0, 1,
               0, 0, 1,
               0, 0, 1,
               0, 0, 1
           ];
-      
+
           this.texCoords = [
               0,1,
               1,1,

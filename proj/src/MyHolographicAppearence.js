@@ -4,7 +4,7 @@ class MyHolographicAppearence extends CGFobject
 	{
         super(scene);
 
-        this.bodyAppearance = new CGFappearance(this.scene);
+    this.bodyAppearance = new CGFappearance(this.scene);
 		this.bodyAppearance.setAmbient(0.8,0.8,0.8,1);
 		this.bodyAppearance.setDiffuse(0.8,0.8,0.8,1);
 		this.bodyAppearance.setSpecular(0.8,0.8,0.8,1);
@@ -12,7 +12,7 @@ class MyHolographicAppearence extends CGFobject
 		this.bodyAppearance.loadTexture("../res/holographic.jpeg");
 
 		this.mirrorAppearance = new CGFappearance(this.scene);
-        this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
+    this.mirrorAppearance.setAmbient(0.8,0.8,0.8,1);
 		this.mirrorAppearance.setDiffuse(2,2,2,1);
 		this.mirrorAppearance.setSpecular(0.3,0.3,0.3,1);
     this.mirrorAppearance.setShininess(100);
@@ -32,6 +32,6 @@ class MyHolographicAppearence extends CGFobject
     this.matriculaAppearance.setShininess(100);
     this.matriculaAppearance.loadTexture("../res/neonplate.png");
 
-        this.initBuffers();
+    this.initBuffers();
     };
 };

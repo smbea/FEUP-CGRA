@@ -1,5 +1,5 @@
 /**
- * MyObject
+ * MyPolygon
  * @param gl {WebGLRenderingContext}
  * @constructor
  */
