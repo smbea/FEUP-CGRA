@@ -35,8 +35,8 @@ class LightingScene extends CGFscene
 		this.Light3=true;
 		this.Light4=true;
 		this.acceleration=2.5;
-		
-		
+
+
 		super.init(application);
 
 		this.initCameras();
@@ -77,7 +77,7 @@ class LightingScene extends CGFscene
 		this.carAppearence2 = new MyWoodAppearence(this);
 		this.carAppearence3 = new MyHolographicAppearence(this);
 
-		
+
 
 
 		this.carAppearences = [this.carAppearence1,this.carAppearence2,this.carAppearence3];
@@ -150,7 +150,7 @@ class LightingScene extends CGFscene
 	update(currTime)
 	{
 			this.checkKeys();
-			
+
 			this.car.update();
 			this.hideCar = this.crane.update();
 			this.currCarAppearance = this.carAppearancesList[this.carTexture];
@@ -158,7 +158,7 @@ class LightingScene extends CGFscene
 			let time = (currTime-this.lastUpdateTime);
 			this.lake.setAngle(this.lake.getAngle()+  time/50000);
 			this.lastUpdateTime = currTime;
-		
+
 	}
 
 	display()
@@ -216,7 +216,6 @@ class LightingScene extends CGFscene
 		// ---- BEGIN Scene drawing section
 		this.crane.display();
 		if(!this.hideCar){
-			var oi=[1,2];
 			this.car.setTexture(this.carAppearences[this.currCarAppearance]);
 			this.car.display();
 		}
@@ -229,7 +228,7 @@ class LightingScene extends CGFscene
 
 		this.lake.display();
 
-		
+
 	};
 
 	ToggleAxis()
@@ -264,7 +263,7 @@ class LightingScene extends CGFscene
 		if (this.gui.isKeyPressed("KeyP"))
 		{
 			if((Math.abs(this.car.getX()+5.9) < 1) && (Math.abs(this.car.getZ()+ 10.7) < 1)){
-				this.car.lockWheel();
+				this.car.lockAndStopWheel();
 				this.crane.pickUp(this.car);
 			}
 		}

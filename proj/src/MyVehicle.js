@@ -325,7 +325,6 @@ class MyVehicle extends CGFobject
         this.x = -1;
         this.y = 0;
         this.z = 0;
-        this.speed = 0;
         this.orientation = this.orientation - Math.PI;
       }
       this.end = false;
@@ -347,6 +346,10 @@ class MyVehicle extends CGFobject
     }
     lockWheel(){
       this.lockWheels = true;
+    }
+    lockAndStopWheel(){
+      this.lockWheels = true;
+      this.speed = 0;
     }
     unlockWheel(){
       this.lockWheels = false;
