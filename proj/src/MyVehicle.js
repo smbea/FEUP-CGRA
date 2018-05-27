@@ -35,8 +35,11 @@ class MyVehicle extends CGFobject
     this.matriculaAppearance = new CGFappearance(this.scene);
 
     this.headlightAppearance = new CGFappearance(this.scene);
-    this.headlightAppearance.setAmbient(1/255,1/255,1/153.8,1);
-    this.headlightAppearance.setSpecular(1/255,1/255,1/153,1);
+    this.headlightAppearance.setAmbient(0.8,0.8,0.8,1);
+		this.headlightAppearance.setDiffuse(1,1,1,1);
+		this.headlightAppearance.setSpecular(1,1,1,1);
+    this.headlightAppearance.setShininess(100);
+    this.headlightAppearance.loadTexture("../res/headlight.jpg");
 
 
 

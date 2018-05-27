@@ -7,7 +7,33 @@ class MyCrane extends CGFobject{
 		this.body = new MyUnitCubeQuad(this.scene);
 		this.car = new MyVehicle(this.scene);
 
-		this.materialDefault = new CGFappearance(this.scene);
+		this.metalDefault = new CGFappearance(this.scene);
+		this.metalDefault.setAmbient(0.3,0.3,0.3,1);
+		this.metalDefault.setDiffuse(0.8,0.8,0.8,1);
+		this.metalDefault.setSpecular(0.3,0.3,0.3,1);
+    	this.metalDefault.setShininess(100);
+		this.metalDefault.loadTexture("../res/metal.jpeg");
+	
+		this.turningAppearance = new CGFappearance(this.scene);
+    	this.turningAppearance.setAmbient(0.3,0.3,0.3,1);
+		this.turningAppearance.setDiffuse(0.8,0.8,0.8,1);
+		this.turningAppearance.setSpecular(0.3,0.3,0.3,1);
+    	this.turningAppearance.setShininess(100);
+		this.turningAppearance.loadTexture("../res/metal.jpg");
+
+		this.baseAppearance = new CGFappearance(this.scene);
+    	this.baseAppearance.setAmbient(0.3,0.3,0.3,1);
+		this.baseAppearance.setDiffuse(0.3,0.3,0.3,1);
+		this.baseAppearance.setSpecular(0.3,0.3,0.3,1);
+    	this.baseAppearance.setShininess(100);
+		this.baseAppearance.loadTexture("../res/metal.jpeg");
+	
+		this.magnetppearance = new CGFappearance(this.scene);
+    	this.magnetppearance.setAmbient(0.3,0.3,0.3,1);
+		this.magnetppearance.setDiffuse(0.8,0.8,0.8,1);
+		this.magnetppearance.setSpecular(0.3,0.3,0.3,1);
+    	this.magnetppearance.setShininess(100);
+    	this.magnetppearance.loadTexture("../res/red.jpg");
 
 
 		this.orientation = 0;
@@ -32,7 +58,7 @@ class MyCrane extends CGFobject{
 		//Base of Crane
     this.scene.pushMatrix();
 	this.scene.scale(2,1,2);
-	this.materialDefault.apply();
+	this.baseAppearance.apply();
     this.cylinder.display();
     this.scene.popMatrix();
 		this.scene.translate(0,1,0);
@@ -49,9 +75,9 @@ class MyCrane extends CGFobject{
 
 		//First Turning Cilinder
 		this.scene.pushMatrix();
-		this.materialDefault.apply();
-	this.cylinder.display();
-    this.scene.popMatrix();
+		this.turningAppearance.apply();
+		this.cylinder.display();
+    	this.scene.popMatrix();
 
 		this.scene.pushMatrix();
 		this.scene.translate(0,0.5,0);
@@ -60,7 +86,7 @@ class MyCrane extends CGFobject{
 		this.scene.rotate(this.firstPillarDegree,1,0,0);
 		this.scene.scale(0.8,this.firstPillarSize,0.8);
 		this.scene.translate(0,0.5,0);
-		this.materialDefault.apply();
+		this.metalDefault.apply();
 		this.body.display();
 		this.scene.popMatrix();
 
@@ -71,9 +97,9 @@ class MyCrane extends CGFobject{
 		this.scene.scale(0.8,1,0.8);
 		this.scene.rotate(-this.secondPillarDegree,0,1,0);
 		this.scene.translate(0,-0.5,0);
-		this.materialDefault.apply();
-    this.cylinder.display();
-    this.scene.popMatrix();
+		this.turningAppearance.apply();
+   		this.cylinder.display();
+   	 	this.scene.popMatrix();
 
 		//Second Pillar
 		this.scene.pushMatrix();
@@ -82,7 +108,7 @@ class MyCrane extends CGFobject{
 		this.scene.rotate(this.secondPillarDegree + Math.PI,1,0,0);
 		this.scene.scale(0.8,this.secondPillarSize,0.8);
 		this.scene.translate(0,0.5,0);
-		this.materialDefault.apply();
+		this.metalDefault.apply();
 		this.body.display();
 		this.scene.popMatrix();
 
@@ -91,7 +117,7 @@ class MyCrane extends CGFobject{
 	  this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree)  ,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
 		this.scene.scale(0.05,this.stringSize,0.05);
 		this.scene.translate(0,-1,0);
-		this.materialDefault.apply();
+		this.baseAppearance.apply();
 		this.cylinder.display();
 		this.scene.popMatrix();
 
@@ -100,7 +126,7 @@ class MyCrane extends CGFobject{
 		this.scene.translate(0,this.firstPillarSize * Math.cos(this.firstPillarDegree) - this.secondPillarSize * Math.cos(this.secondPillarDegree) - this.stringSize,this.firstPillarSize * Math.sin(this.firstPillarDegree)- this.secondPillarSize * Math.sin(this.secondPillarDegree) );
 		this.scene.scale(1.4,0.5,1.4);
 		this.scene.translate(0,-0.5,0);
-		this.materialDefault.apply();
+		this.magnetppearance.apply();
 		this.cylinder.display();
 		this.scene.popMatrix();
 

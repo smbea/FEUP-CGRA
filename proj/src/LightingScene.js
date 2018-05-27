@@ -67,10 +67,11 @@ class LightingScene extends CGFscene
 		this.setUpdatePeriod(1000/this.fps);
 
 		this.platformAppearence = new CGFappearance(this);
-		this.platformAppearence.setAmbient(0,0,0,1);
-		this.platformAppearence.setDiffuse(0,0,0,1);
-		this.platformAppearence.setSpecular(0.8,0.8,0.8,1);
-		this.platformAppearence.setShininess(100);
+		this.platformAppearence.setAmbient(0.3,0.3,0.3,1);
+		this.platformAppearence.setDiffuse(0.8,0.8,0.8,1);
+		this.platformAppearence.setSpecular(0.3,0.3,0.3,1);
+    	this.platformAppearence.setShininess(100);
+		this.platformAppearence.loadTexture("../res/platform.jpeg");
 
 		this.carAppearence1 = new MyBasicAppearence(this);
 		this.carAppearence2 = new MyWoodAppearence(this);

@@ -3,8 +3,8 @@ class MyWheel extends CGFobject{
 	constructor(scene)
 	{
 		super(scene);
-		this.cylinder  = new MyCylinder(this.scene,30,1);
-        this.surface = new MyPolygon(this.scene,30);
+		this.cylinder  = new MyCylinder(this.scene,50,1);
+        this.surface = new MyPolygon(this.scene,50);
         this.wheelAppearance = new CGFappearance(this.scene);
 
         this.cylinderAppearance = new CGFappearance(this.scene);
